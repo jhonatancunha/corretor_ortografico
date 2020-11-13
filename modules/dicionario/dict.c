@@ -33,5 +33,5 @@ ASCIITrie* criarDicionario(char *dicionario){
 void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
   ASCIITrie *aux = AT_Buscar(dicionario, texto);
   if(aux == NULL) printf("%s nao encontrado!\n", texto);
-  else printf("%s encontrado!\n", texto);
+  // else printf("%s encontrado!\n", texto);
 }

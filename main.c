@@ -4,13 +4,14 @@
 #include <ctype.h>
 
 #include "modules/dicionario/dict.h"
-// #include "modules/trie/trie.h"
 
 
-void formataEntrada(char *arquivo){
+
+void formataEntrada(ASCIITrie *dict, char *arquivo){
   FILE *arq = fopen(arquivo, "r");
   char aux;
   char *string;
+  int qtdpalavras = 0;
   int i;
 
   do{
@@ -21,10 +22,15 @@ void formataEntrada(char *arquivo){
       if(isspace(aux) || ispunct(aux) || aux == EOF) break;
       string[i++] = tolower(aux);
     };
-    printf("%s\n", string);
+
+    if(i > 0) {
+      CorrigirOrtografia(dict, string);
+      qtdpalavras += 1;
+    }
     free(string);
   }while(aux != EOF);
 
+  printf("\n\n%d palavras verificadas!\n", qtdpalavras);
   fclose(arq);
 }
 
@@ -50,9 +56,11 @@ void formataEntradaString(char *string){
 int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
   
-  CorrigirOrtografia(dict, "o");
+  formataEntrada(dict, "testes/casmurro2.txt");
 
-  CorrigirOrtografia(dict, "rats");
+  // CorrigirOrtografia(dict, "o");
+
+  // CorrigirOrtografia(dict, "rats");
 
   return 0;
 }
