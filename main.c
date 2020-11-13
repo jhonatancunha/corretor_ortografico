@@ -58,9 +58,5 @@ int main(int argc, char** argv){
   
   formataEntrada(dict, "testes/casmurro2.txt");
 
-  // CorrigirOrtografia(dict, "o");
-
-  // CorrigirOrtografia(dict, "rats");
-
   return 0;
 }
