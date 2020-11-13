@@ -55,7 +55,9 @@ int main(int argc, char** argv){
   
   char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
 
-  formataEntradaString(dict, string);
+  // formataEntradaString(dict, string);
+
+  TRIE_ChavesQueCasam(dict, "ac", 2);
   // formataEntrada(dict, "testes/casmurro2.txt");
   return 0;
 }
