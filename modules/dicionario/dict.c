@@ -39,6 +39,10 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
 }
 
 static void ObterChavesQueCasam(LISTA *l, ASCIITrie *dict, Pilha *pilha, char *s, int p){
+  if(dict == NULL){
+    Pilha_Remover(pilha);
+    return;
+  }
   if(p == strlen(s)){
     if(dict->estado == TRIE_OCUPADO){
       char *aux = calloc(strlen(pilha->vetor)+1, sizeof(char));
