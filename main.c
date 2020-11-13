@@ -3,9 +3,9 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "modules/trie/trie.h"
+#include "modules/dicionario/dict.h"
+// #include "modules/trie/trie.h"
 
-#define LARGEST_WORD 46
 
 void formataEntrada(char *arquivo){
   FILE *arq = fopen(arquivo, "r");
@@ -44,27 +44,9 @@ void formataEntradaString(char *string){
   free(stringAux);
 }
 
+
 int main(int argc, char** argv){
-  // char string[] = "OLA ESTE E UM TESTE SE NOSSA FUNCAO ESTA FUNCIONANDO CORRETAMENTE";
-  // formataEntradaString(string);
-
-  // printf("INICIO: %s\n", string);  
-  // formataEntrada("testes/casmurro1.txt");
-  // printf("FIM: %s\n", string);
-
-  // for(int i = 0; i < 256; i++){
-  //   printf("%c - %d\n", i, i);
-  // }
-
-  ASCIITrie *trie = NULL;
-  AT_Inserir(&trie, "", 0);
-  AT_Inserir(&trie, "o", 1);
-  AT_Inserir(&trie, "rato", 2);
-  AT_Inserir(&trie, "roeu", 3);
-  AT_Inserir(&trie, "a", 4);
-  AT_Inserir(&trie, "roupa", 5);
-  
-  AT_Imprimir(trie);
+  ASCIITrie *dict = criarDicionario();
 
   return 0;
 }

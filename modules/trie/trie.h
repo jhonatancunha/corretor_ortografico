@@ -1,5 +1,7 @@
 #pragma once
 
+#define LARGEST_WORD 46
+
 typedef enum ASCIITrie_Estado{
   TRIE_LIVRE,
   TRIE_OCUPADO
@@ -11,6 +13,7 @@ typedef struct ASCIITrie{
   struct ASCIITrie *filhos[26];
   ASCIITrie_Estado estado;
 } ASCIITrie;
+
 
 ASCIITrie *AT_Buscar(ASCIITrie *T, unsigned char *chave);
 ASCIITrie *AT_Buscar_Iterativo(ASCIITrie *T, unsigned char *chave);
