@@ -5,8 +5,6 @@
 
 #include "modules/dicionario/dict.h"
 
-
-
 void formataEntrada(ASCIITrie *dict, char *arquivo){
   FILE *arq = fopen(arquivo, "r");
   char aux;
@@ -19,7 +17,7 @@ void formataEntrada(ASCIITrie *dict, char *arquivo){
     i = 0;
     while(1){
       aux = fgetc(arq);
-      if(isspace(aux) || ispunct(aux) || aux == EOF) break;
+      if(isspace(aux) || ispunct(aux) || isdigit(aux) || aux == EOF) break;
       string[i++] = tolower(aux);
     };
 
@@ -52,11 +50,9 @@ void formataEntradaString(char *string){
   free(stringAux);
 }
 
-
 int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
   
   formataEntrada(dict, "testes/casmurro2.txt");
-
   return 0;
 }
