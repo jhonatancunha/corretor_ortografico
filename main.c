@@ -24,6 +24,8 @@ void formataEntrada(char *arquivo){
     printf("%s\n", string);
     free(string);
   }while(aux != EOF);
+
+  fclose(arq);
 }
 
 void formataEntradaString(char *string){
@@ -47,6 +49,10 @@ void formataEntradaString(char *string){
 
 int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
+  
+  CorrigirOrtografia(dict, "o");
+
+  CorrigirOrtografia(dict, "rats");
 
   return 0;
 }

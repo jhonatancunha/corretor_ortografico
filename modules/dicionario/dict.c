@@ -16,7 +16,6 @@ ASCIITrie* criarDicionario(char *dicionario){
     aux = fgetc(arq);
     if(aux == '\n'){
       AT_Inserir(&dict, string, 1);
-      printf("%s\n", string);
       free(string);
       i = 0;
       string = calloc(LARGEST_WORD, sizeof(char));
@@ -27,4 +26,12 @@ ASCIITrie* criarDicionario(char *dicionario){
 
   free(string);
   fclose(arq);
+
+  return dict;
+}
+
+void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
+  ASCIITrie *aux = AT_Buscar(dicionario, texto);
+  if(aux == NULL) printf("%s nao encontrado!\n", texto);
+  else printf("%s encontrado!\n", texto);
 }
