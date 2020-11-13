@@ -32,7 +32,7 @@ void formataEntrada(ASCIITrie *dict, char *arquivo){
   fclose(arq);
 }
 
-void formataEntradaString(char *string){
+void formataEntradaString(ASCIITrie *dict, char *string){
   char aux;
   char *stringAux = calloc(LARGEST_WORD, sizeof(char));
   int i = 0, j;
@@ -41,7 +41,7 @@ void formataEntradaString(char *string){
     if(!isspace(string[j]) && !ispunct(string[j]) && string[j] != 0){
       stringAux[i++] = tolower(string[j]);
     }else{
-      printf("%s\n", stringAux);
+      if(i > 0) CorrigirOrtografia(dict, stringAux);
       free(stringAux);
       stringAux = calloc(LARGEST_WORD, sizeof(char));
       i = 0;
@@ -53,6 +53,9 @@ void formataEntradaString(char *string){
 int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
   
-  formataEntrada(dict, "testes/casmurro2.txt");
+  char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
+
+  formataEntradaString(dict, string);
+  // formataEntrada(dict, "testes/casmurro2.txt");
   return 0;
 }
