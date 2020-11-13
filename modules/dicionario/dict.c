@@ -4,8 +4,8 @@
 
 #include "dict.h"
 
-ASCIITrie* criarDicionario(){
-  FILE *arq = fopen("modules/dicionario/dicionario.txt", "r");
+ASCIITrie* criarDicionario(char *dicionario){
+  FILE *arq = fopen(dicionario, "r");
   if(arq == NULL) return NULL;
   ASCIITrie *dict = NULL;
   char *string = calloc(LARGEST_WORD, sizeof(char));

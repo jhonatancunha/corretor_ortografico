@@ -46,7 +46,7 @@ void formataEntradaString(char *string){
 
 
 int main(int argc, char** argv){
-  ASCIITrie *dict = criarDicionario();
+  ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
 
   return 0;
 }

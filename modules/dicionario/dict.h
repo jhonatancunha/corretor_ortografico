@@ -1,4 +1,4 @@
 #pragma once
 #include "../trie/trie.h"
 
-ASCIITrie* criarDicionario();
+ASCIITrie* criarDicionario(char *dicionario);
