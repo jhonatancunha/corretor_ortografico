@@ -4,21 +4,23 @@
 
 LISTA* LISTA_Criar () {
   LISTA* nova = malloc(sizeof(LISTA));
-  nova->vetor = malloc(sizeof(char*) * 1);
-  nova->tamanho = 1;
+  nova->tamanho = 10;
+  nova->vetor = malloc(sizeof(char*) * nova->tamanho);
   nova->quantidade_atual = 0;
 
   return nova;
 }
 
 static void LISTA_Redimensionar (LISTA* l) {
-  char** novo_vetor = malloc(sizeof(char*) * (l->tamanho + 10));
+  int novo_tamanho = l->tamanho + 10;
+  char** novo_vetor = malloc(sizeof(char*) * novo_tamanho);
   
   for (int i = 0; i < l->tamanho; i++) {
     novo_vetor[i] = l->vetor[i];
   }
 
   l->vetor = novo_vetor;
+  l->tamanho = novo_tamanho;
 }
 
 void LISTA_Inserir (LISTA* l, char* palavra) {

@@ -6,7 +6,6 @@
 #include "modules/dicionario/dict.h"
 // #include "modules/trie/trie.h"
 
-
 void formataEntrada(char *arquivo){
   FILE *arq = fopen(arquivo, "r");
   char aux;
