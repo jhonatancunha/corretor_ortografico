@@ -27,6 +27,7 @@ void LISTA_Inserir (LISTA* l, char* palavra) {
   if (l->quantidade_atual == l->tamanho) 
     LISTA_Redimensionar(l);
   
+
   l->vetor[l->quantidade_atual++] = palavra;
 }
 

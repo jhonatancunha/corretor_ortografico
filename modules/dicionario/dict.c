@@ -38,25 +38,30 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
   // else printf("%s encontrado!\n", texto);
 }
 
-strict void ObterChavesQueCasam(LISTA *l, ASCIITrie *dict, Pilha *p, char *s, int p){
-  if(p == len(s)){
-    LISTA_Inserir(l, s);
+static void ObterChavesQueCasam(LISTA *l, ASCIITrie *dict, Pilha *pilha, char *s, int p){
+  if(p == strlen(s)){
+    if(dict->estado == TRIE_OCUPADO){
+      char *aux = calloc(strlen(pilha->vetor)+1, sizeof(char));
+      memcpy(aux, pilha->vetor, pilha->prox);
+      LISTA_Inserir(l, aux);
+    }
+    Pilha_Remover(pilha);
     return;
   }
 
-  if(ispunct(s[i])){
+  if(ispunct(s[p])){
     for(int j = 0; j < 26; j++){
       if(dict->filhos[j] != NULL){
-        Pilha_Inserir(p, s[p]);
-        ObterChavesQueCasam(Ll, dict, s, p+1);
+        Pilha_Inserir(pilha, j+97);
+        ObterChavesQueCasam(l, dict->filhos[j], pilha, s, p+1);
       }
     }
   }else{
-    Pilha_Inserir(p, s[p]);
-    ObterChavesQueCasam(Ll, dict, s, p+1);
+    Pilha_Inserir(pilha, s[p]);
+    ObterChavesQueCasam(l, dict->filhos[s[p]-97], pilha, s, p+1);
   }
 
-  Pilha_Remover(p);
+  Pilha_Remover(pilha);
 }
 
 
@@ -69,4 +74,8 @@ LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
   Pilha *p = Pilha_Criar();
 
   ObterChavesQueCasam(l, dicionario, p, string, 0);
+
+  Pilha_Destruir(p);
+
+  return l;
 }
