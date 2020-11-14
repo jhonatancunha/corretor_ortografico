@@ -68,7 +68,6 @@ static void ObterChavesQueCasam(LISTA *l, ASCIITrie *dict, Pilha *pilha, char *s
   Pilha_Remover(pilha);
 }
 
-
 LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
   int tam = strlen(padrao)+n_extras;
   char *string = calloc(tam+1, sizeof(char));

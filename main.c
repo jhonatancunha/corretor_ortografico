@@ -57,7 +57,7 @@ int main(int argc, char** argv){
 
   // formataEntradaString(dict, string);
 
-  LISTA *l = TRIE_ChavesQueCasam(dict, "rat", 1);
+  LISTA *l = TRIE_ChavesQueCasam(dict, "sala", 2);
   LISTA_Imprimir(l);
   // formataEntrada(dict, "testes/casmurro2.txt");
   return 0;
