@@ -32,7 +32,7 @@ void LISTA_Inserir (LISTA* l, char* palavra) {
 
 void LISTA_Imprimir (LISTA* l) {
   for (int i = 0; i < l->quantidade_atual; i++) {
-    printf("%s\n", l->vetor[i]);
+    printf("%s\n\n", l->vetor[i]);
   }
 
   printf("\nquantidade atual: %d\n", l->quantidade_atual);

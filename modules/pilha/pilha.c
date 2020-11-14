@@ -32,8 +32,6 @@ void Pilha_Inserir (Pilha* pilha, char c) {
 
 void Pilha_Imprimir (Pilha* pilha) {
   printf("%s\n", pilha->vetor);
-
-  printf("\nquantidade atual: %d\n", pilha->prox);
 }
 
 void Pilha_Remover (Pilha* pilha) {

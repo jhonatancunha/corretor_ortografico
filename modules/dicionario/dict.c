@@ -38,35 +38,35 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
   // else printf("%s encontrado!\n", texto);
 }
 
-strict void ObterChavesQueCasam(LISTA *l, ASCIITrie *dict, Pilha *p, char *s, int p){
-  if(p == len(s)){
-    LISTA_Inserir(l, s);
-    return;
-  }
+// strict void ObterChavesQueCasam(LISTA *l, ASCIITrie *dict, Pilha *p, char *s, int p){
+//   if(p == len(s)){
+//     LISTA_Inserir(l, s);
+//     return;
+//   }
 
-  if(ispunct(s[i])){
-    for(int j = 0; j < 26; j++){
-      if(dict->filhos[j] != NULL){
-        Pilha_Inserir(p, s[p]);
-        ObterChavesQueCasam(Ll, dict, s, p+1);
-      }
-    }
-  }else{
-    Pilha_Inserir(p, s[p]);
-    ObterChavesQueCasam(Ll, dict, s, p+1);
-  }
+//   if(ispunct(s[i])){
+//     for(int j = 0; j < 26; j++){
+//       if(dict->filhos[j] != NULL){
+//         Pilha_Inserir(p, s[p]);
+//         ObterChavesQueCasam(Ll, dict, s, p+1);
+//       }
+//     }
+//   }else{
+//     Pilha_Inserir(p, s[p]);
+//     ObterChavesQueCasam(Ll, dict, s, p+1);
+//   }
 
-  Pilha_Remover(p);
-}
+//   Pilha_Remover(p);
+// }
 
 
-LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
-  int tam = strlen(padrao)+n_extras;
-  char *string = calloc(tam+1, sizeof(char));
-  memset(string, '*', tam);
-  memcpy(string, padrao, strlen(padrao));
-  LISTA *l = LISTA_Criar();
-  Pilha *p = Pilha_Criar();
+// LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
+//   int tam = strlen(padrao)+n_extras;
+//   char *string = calloc(tam+1, sizeof(char));
+//   memset(string, '*', tam);
+//   memcpy(string, padrao, strlen(padrao));
+//   LISTA *l = LISTA_Criar();
+//   Pilha *p = Pilha_Criar();
 
-  ObterChavesQueCasam(l, dicionario, p, string, 0);
-}
+//   ObterChavesQueCasam(l, dicionario, p, string, 0);
+// }

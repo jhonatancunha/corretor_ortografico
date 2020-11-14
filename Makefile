@@ -3,6 +3,7 @@ all:
 	gcc -g -c modules/lista/lista.c
 	gcc -g -c modules/pilha/pilha.c
 	gcc -g -c modules/trie/trie.c
+	gcc -g -c modules/busca_aproximada/busca_aproximada.c
 	gcc -g -c modules/dicionario/dict.c
 	gcc -o main *.o
 	
