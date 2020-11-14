@@ -4,6 +4,7 @@
 #include <ctype.h>
 
 #include "modules/dicionario/dict.h"
+#include "modules/busca_aproximada/busca_aproximada.h"
 
 void formataEntrada(ASCIITrie *dict, char *arquivo){
   FILE *arq = fopen(arquivo, "r");
@@ -53,12 +54,18 @@ void formataEntradaString(ASCIITrie *dict, char *string){
 int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
   
-  char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
+  // char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
 
   // formataEntradaString(dict, string);
 
   LISTA *l = TRIE_ChavesQueCasam(dict, "sala", 2);
   LISTA_Imprimir(l);
   // formataEntrada(dict, "testes/casmurro2.txt");
+
+
+  //TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
+  LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "za");
+  LISTA_Imprimir(lista_palavras);
+
   return 0;
 }
