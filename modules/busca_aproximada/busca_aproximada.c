@@ -7,36 +7,36 @@
 
 #define TAMANHO_ALFABETO 26
 
-static ASCIITrie* TRIE_ObterPrefixo (ASCIITrie* T, unsigned char* prefixo, int tamanho, int passo) {
+static ASCIITrie* TRIE_ObterPrefixo (ASCIITrie* T, unsigned char* prefixo, int tamanho, int p) {
   if(T == NULL) return NULL; 
-  if(passo == tamanho) return T;
-  return TRIE_ObterPrefixo(T->filhos[prefixo[passo]-97], prefixo, tamanho, passo+1);
+  if(p == tamanho) return T;
+  return TRIE_ObterPrefixo(T->filhos[prefixo[p]-97], prefixo, tamanho, p+1);
 }
 
-static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* l, Pilha* p) {
+static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* lista_palavras, Pilha* pilha_auxiliar) {
   if (dicionario == NULL){
-    Pilha_Remover(p);
+    Pilha_Remover(pilha_auxiliar);
 
     return;
   }
 
   if (dicionario->estado == TRIE_OCUPADO) {
-    char* palavra_encontrada = calloc(strlen(p->vetor)+1, sizeof(char));
-    memcpy(palavra_encontrada, p->vetor, p->prox);
-    LISTA_Inserir(l, palavra_encontrada);
-    Pilha_Remover(p);
+    char* palavra_encontrada = calloc(strlen(pilha_auxiliar->vetor)+1, sizeof(char));
+    memcpy(palavra_encontrada, pilha_auxiliar->vetor, pilha_auxiliar->prox);
+    LISTA_Inserir(lista_palavras, palavra_encontrada);
+    Pilha_Remover(pilha_auxiliar);
 
     return;
   }
 
   for (int i = 0; i < TAMANHO_ALFABETO; i++){
     if (dicionario->filhos[i] != NULL) {
-      Pilha_Inserir(p, i+97);
-      TRIE_EncontrarChavesComPrefixo(dicionario->filhos[i], l, p);
+      Pilha_Inserir(pilha_auxiliar, i+97);
+      TRIE_EncontrarChavesComPrefixo(dicionario->filhos[i], lista_palavras, pilha_auxiliar);
     }
   }
 
-  Pilha_Remover(p);
+  Pilha_Remover(pilha_auxiliar);
 }
 
 LISTA* TRIE_ChavesComPrefixo (ASCIITrie* dicionario, char* prefix) {
@@ -71,7 +71,7 @@ static void ObterChavesQueCasam(LISTA *l, ASCIITrie *dict, Pilha *pilha, char *s
   }
 
   if(ispunct(s[p])){
-    for(int j = 0; j < 26; j++){
+    for(int j = 0; j < TAMANHO_ALFABETO; j++){
       if(dict->filhos[j] != NULL){
         Pilha_Inserir(pilha, j+97);
         ObterChavesQueCasam(l, dict->filhos[j], pilha, s, p+1);
