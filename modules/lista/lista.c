@@ -35,11 +35,9 @@ void LISTA_Imprimir (LISTA* l) {
   for (int i = 0; i < l->quantidade_atual; i++) {
     printf("%s\n\n", l->vetor[i]);
   }
-
-  printf("\nquantidade atual: %d\n", l->quantidade_atual);
 }
 
-void LISTA_Remover (LISTA* l) {
+void LISTA_Destruir (LISTA* l) {
   free(l->vetor);
   free(l);
 }

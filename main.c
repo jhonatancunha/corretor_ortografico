@@ -64,7 +64,7 @@ int main(int argc, char** argv){
 
 
   //TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
-  LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "br");
+  LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "za");
   LISTA_Imprimir(lista_palavras);
 
   return 0;
