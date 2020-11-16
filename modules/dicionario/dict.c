@@ -33,9 +33,17 @@ ASCIITrie* criarDicionario(char *dicionario){
   return dict;
 }
 
+void Preenche_Trie_Sugestoes(ASCIITrie** trie,LISTA* l){
+  for(int i = 0; i < l->quantidade_atual; i++){
+    AT_Inserir(trie, l->vetor[i], 1);
+  }
+}
+
 void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
   ASCIITrie *aux = AT_Buscar(dicionario, texto);
   if(aux == NULL){
+    ASCIITrie *trie = NULL;
+
     printf("palavra nao esta no dicionario: %s\n", texto);
     printf("sugestoes:\n");
 
@@ -49,7 +57,8 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
       LISTA *l_coringa = TRIE_ChavesQueCasam(dicionario, padrao, 0);
       padrao[i] = antes;
 
-      LISTA_Imprimir(l_coringa);
+      Preenche_Trie_Sugestoes(&trie, l_coringa);
+      LISTA_Destruir(l_coringa);
     }
     free(padrao);
   
@@ -57,7 +66,6 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     if(strlen(texto) > 5){
       char *caso1 = calloc(strlen(texto), sizeof(char));
       char *caso2 = calloc(strlen(texto)-1, sizeof(char));
-
 
       memcpy(caso1, texto, strlen(texto)-1);
       LISTA *l1 = TRIE_ChavesComPrefixo(dicionario, caso1);
@@ -67,13 +75,16 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
 
       free(caso1);
       free(caso2);
-      LISTA_Imprimir(l1);
-      LISTA_Imprimir(l2);
+
+      Preenche_Trie_Sugestoes(&trie, l1);
+      Preenche_Trie_Sugestoes(&trie, l2);
+      LISTA_Destruir(l1);
+      LISTA_Destruir(l2);
     }
 
 
-    // char *maior = TRIE_ChaveMaiorPrefixoDe(dicionario, texto);
-    // printf("%s", maior);
-    printf("\n\n");
+    LISTA *total = TRIE_ChavesComPrefixo(trie, "");
+    LISTA_Imprimir(total);
+    printf("\n");
   }
 }

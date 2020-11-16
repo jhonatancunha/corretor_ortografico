@@ -14,10 +14,8 @@ static ASCIITrie* TRIE_ObterPrefixo (ASCIITrie* T, unsigned char* prefixo, int t
 }
 
 static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* lista_palavras, Pilha* pilha_auxiliar) {
-
   if (dicionario == NULL){
     Pilha_Remover(pilha_auxiliar);
-
     return;
   }
 
