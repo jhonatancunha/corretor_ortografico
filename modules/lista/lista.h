@@ -12,4 +12,4 @@ int LISTA_isVazia (LISTA* l);
 char* LISTA_MaiorPalavra (LISTA* l);
 void LISTA_Imprimir (LISTA* l);
 void LISTA_Destruir (LISTA* l);
-
+void ordenaLista(LISTA *l);

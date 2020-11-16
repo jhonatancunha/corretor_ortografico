@@ -16,17 +16,14 @@ static void LISTA_Redimensionar (LISTA* l) {
   int novo_tamanho = l->tamanho + 10;
   char** novo_vetor = malloc(sizeof(char*) * novo_tamanho);
   
-  for (int i = 0; i < l->tamanho; i++) {
-    novo_vetor[i] = l->vetor[i];
-  }
-
+  for (int i = 0; i < l->tamanho; i++) novo_vetor[i] = l->vetor[i];
+  
   l->vetor = novo_vetor;
   l->tamanho = novo_tamanho;
 }
 
 void LISTA_Inserir (LISTA* l, char* palavra) {
-  if (l->quantidade_atual == l->tamanho) 
-    LISTA_Redimensionar(l);
+  if (l->quantidade_atual == l->tamanho) LISTA_Redimensionar(l);
   
   l->vetor[l->quantidade_atual++] = palavra;
 }
@@ -47,16 +44,27 @@ char* LISTA_MaiorPalavra (LISTA* l) {
 }
 
 void LISTA_Imprimir (LISTA* l) {
-  for (int i = 0; i < l->quantidade_atual; i++) {
-    printf("%s, ", l->vetor[i]);
-  }
+  for (int i = 0; i < l->quantidade_atual; i++) printf("%s, ", l->vetor[i]);
 }
 
 void LISTA_Destruir (LISTA* l) {
-  for (int i = 0; i < l->quantidade_atual; i++) {
-    free(l->vetor[i]);  
-  }
+  for (int i = 0; i < l->quantidade_atual; i++) free(l->vetor[i]);  
 
   free(l->vetor);
   free(l);
+}
+
+static void troca(char **vet, int maior, int menor){
+  char *aux = vet[maior];
+  vet[maior] = vet[menor];
+  vet[menor] = aux;
+}
+
+void ordenaLista(LISTA *l){
+  for(int i = 0; i < l->quantidade_atual-1; i++){
+    char *aux = l->vetor[i];
+    char *aux2 = l->vetor[i+1];
+
+    if(strlen(aux) < strlen(aux2)) troca(l->vetor, i, i+1);
+  }
 }

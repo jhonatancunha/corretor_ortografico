@@ -88,6 +88,7 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     if(strlen(chave_maior_prefixo) > 0) AT_Inserir(&trie, chave_maior_prefixo, 1);
 
     LISTA *total = TRIE_ChavesComPrefixo(trie, "");
+    ordenaLista(total);
     LISTA_Imprimir(total);
     printf("\n\n");
   }
