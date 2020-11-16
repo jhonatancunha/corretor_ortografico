@@ -27,17 +27,24 @@ void LISTA_Inserir (LISTA* l, char* palavra) {
   if (l->quantidade_atual == l->tamanho) 
     LISTA_Redimensionar(l);
   
-
   l->vetor[l->quantidade_atual++] = palavra;
+}
+
+int LISTA_isVazia (LISTA* l) { //refatoração: verificar se a lista realmente existe e retornar -1 caso não exista
+  return l->quantidade_atual == 0 ? 1 : 0;
 }
 
 void LISTA_Imprimir (LISTA* l) {
   for (int i = 0; i < l->quantidade_atual; i++) {
-    printf("%s\n\n", l->vetor[i]);
+    printf("%s\n", l->vetor[i]);
   }
 }
 
 void LISTA_Destruir (LISTA* l) {
+  for (int i = 0; i < l->quantidade_atual; i++) {
+    free(l->vetor[i]);  
+  }
+
   free(l->vetor);
   free(l);
 }

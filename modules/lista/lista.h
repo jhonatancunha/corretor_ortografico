@@ -8,5 +8,7 @@ typedef struct LISTA {
 
 LISTA* LISTA_Criar ();
 void LISTA_Inserir (LISTA* l, char* palavra);
-void LISTA_Destruir (LISTA* l);
+int LISTA_isVazia (LISTA* l);
 void LISTA_Imprimir (LISTA* l);
+void LISTA_Destruir (LISTA* l);
+

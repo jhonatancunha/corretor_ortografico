@@ -62,10 +62,16 @@ int main(int argc, char** argv){
   LISTA_Imprimir(l);
   // formataEntrada(dict, "testes/casmurro2.txt");
 
+  printf("\n");
 
-  //TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
-  LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "za");
+  // TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
+  LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "zarabata");
   LISTA_Imprimir(lista_palavras);
+  LISTA_Destruir(lista_palavras);
+
+  // TESTE DA FUNÇÃO TRIE_ChaveMaiorPrefixoDe()
+  char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, "çbrabatanas");
+  printf("Maior prefixo de ZARABATANE é %s\n", chave_maior_prefixo);
 
   return 0;
 }
