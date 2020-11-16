@@ -61,10 +61,11 @@ static void troca(char **vet, int maior, int menor){
 }
 
 void ordenaLista(LISTA *l){
-  for(int i = 0; i < l->quantidade_atual-1; i++){
-    char *aux = l->vetor[i];
-    char *aux2 = l->vetor[i+1];
-
-    if(strlen(aux) < strlen(aux2)) troca(l->vetor, i, i+1);
+  for(int i = l->quantidade_atual; i > 0; i--){
+    for(int j = 0; j < i-1; j++){
+      char *aux = l->vetor[j];
+      char *aux2 = l->vetor[j+1];
+      if(strlen(aux) < strlen(aux2)) troca(l->vetor, j, j+1);
+    }
   }
 }
