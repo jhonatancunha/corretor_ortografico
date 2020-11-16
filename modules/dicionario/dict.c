@@ -85,7 +85,7 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
 
     //REGRA 3
     char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dicionario, texto);
-    AT_Inserir(&trie, chave_maior_prefixo, 1);
+    if(strlen(chave_maior_prefixo) > 0) AT_Inserir(&trie, chave_maior_prefixo, 1);
 
     LISTA *total = TRIE_ChavesComPrefixo(trie, "");
     LISTA_Imprimir(total);
