@@ -70,8 +70,13 @@ int main(int argc, char** argv){
   LISTA_Destruir(lista_palavras);
 
   // TESTE DA FUNÇÃO TRIE_ChaveMaiorPrefixoDe()
-  char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, "çbrabatanas");
+  char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, "zarabatane");
   printf("Maior prefixo de ZARABATANE é %s\n", chave_maior_prefixo);
+  lista_palavras = TRIE_ChavesComPrefixo(dict, chave_maior_prefixo);
+  printf("\n\nTESTE:\n");
+  LISTA_Imprimir(lista_palavras);
+
+  LISTA_Destruir(l);
 
   return 0;
 }

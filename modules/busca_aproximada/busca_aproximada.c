@@ -119,6 +119,8 @@ char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
     }
   } while (contador < strlen(s));
 
+  if (contador ==  strlen(s)) maior_prefixo = "";
+
   LISTA_Destruir(lista_palavras);
 
   return maior_prefixo;
