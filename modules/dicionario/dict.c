@@ -39,7 +39,7 @@ void Preenche_Trie_Sugestoes(ASCIITrie** trie,LISTA* l){
   }
 }
 
-ASCIITrie* CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
+void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
   ASCIITrie *aux = AT_Buscar(dicionario, texto);
   if(aux == NULL){
     ASCIITrie *trie = NULL;
@@ -66,7 +66,6 @@ ASCIITrie* CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     if(strlen(texto) > 5){
       char *caso1 = calloc(strlen(texto), sizeof(char));
       char *caso2 = calloc(strlen(texto)-1, sizeof(char));
-
 
       memcpy(caso1, texto, strlen(texto)-1);
       LISTA *l1 = TRIE_ChavesComPrefixo(dicionario, caso1);
