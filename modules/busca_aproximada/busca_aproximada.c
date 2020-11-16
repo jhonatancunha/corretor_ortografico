@@ -108,7 +108,7 @@ char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
   LISTA* lista_palavras = LISTA_Criar();
 
   do {
-    maior_prefixo = calloc(sizeof(char), strlen(s)-contador);
+    maior_prefixo = calloc(strlen(s)-contador, sizeof(char));
     memcpy(maior_prefixo, s, strlen(s)-contador);
     lista_palavras = TRIE_ChavesComPrefixo(T, maior_prefixo);
 
