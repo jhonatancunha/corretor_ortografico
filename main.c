@@ -67,18 +67,15 @@ int main(int argc, char** argv){
   // printf("\n");
 
   // // TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
-  // LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "zarabata");
-  // LISTA_Imprimir(lista_palavras);
-  // LISTA_Destruir(lista_palavras);
+  LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "zaraba");
+  LISTA_Imprimir(lista_palavras);
+  LISTA_Destruir(lista_palavras);
 
 
   // TESTE DA FUNÇÃO TRIE_ChaveMaiorPrefixoDe()
-  // char *c = "zebraolho";
-  // char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, c);
-  // printf("Maior prefixo de zebraolho é %s\n", chave_maior_prefixo);
-  // lista_palavras = TRIE_ChavesComPrefixo(dict, chave_maior_prefixo);
-  // printf("\n\nTESTE:\n");
-  // LISTA_Imprimir(lista_palavras);
+  char *c = "zebraolho";
+  char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, c);
+  printf("\n\nMaior prefixo de %s é %s\n", c, chave_maior_prefixo);
 
   // LISTA_Destruir(l);
 

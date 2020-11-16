@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lista.h"
 
 LISTA* LISTA_Criar () {
@@ -32,6 +33,17 @@ void LISTA_Inserir (LISTA* l, char* palavra) {
 
 int LISTA_isVazia (LISTA* l) { //refatoração: verificar se a lista realmente existe e retornar -1 caso não exista
   return l->quantidade_atual == 0 ? 1 : 0;
+}
+
+char* LISTA_MaiorPalavra (LISTA* l) {
+  char* maior_palavra = l->vetor[0];
+  
+  for (int i = 1; i < l->quantidade_atual; i++) {
+    if (strlen(l->vetor[i]) > strlen(maior_palavra))
+      maior_palavra = l->vetor[i];
+  }
+
+  return maior_palavra;
 }
 
 void LISTA_Imprimir (LISTA* l) {
