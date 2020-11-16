@@ -24,7 +24,7 @@ void formataEntrada(ASCIITrie *dict, char *arquivo){
     };
 
     if(i > 0) {
-      ASCIITrie *trie = CorrigirOrtografia(dict, string);
+      CorrigirOrtografia(dict, string);
       qtdpalavras += 1;
     }
     free(string);
@@ -44,7 +44,7 @@ void formataEntradaString(ASCIITrie *dict, char *string){
       stringAux[i++] = tolower(string[j]);
     }else{
       if(i > 0) {
-        ASCIITrie *trie = CorrigirOrtografia(dict, stringAux);
+        CorrigirOrtografia(dict, stringAux);
       }
       free(stringAux);
       stringAux = calloc(LARGEST_WORD, sizeof(char));
@@ -56,8 +56,6 @@ void formataEntradaString(ASCIITrie *dict, char *string){
 
 int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
-  
-  char texto[] = "saladq";
 
 
   char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
@@ -69,16 +67,16 @@ int main(int argc, char** argv){
 
   // printf("\n");
 
-  // // TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
-  LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "zaraba");
-  LISTA_Imprimir(lista_palavras);
-  LISTA_Destruir(lista_palavras);
+  // // // TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
+  // LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "zaraba");
+  // LISTA_Imprimir(lista_palavras);
+  // LISTA_Destruir(lista_palavras);
 
 
   // TESTE DA FUNÇÃO TRIE_ChaveMaiorPrefixoDe()
-  char *c = "zebraolho";
-  char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, c);
-  printf("\n\nMaior prefixo de %s é %s\n", c, chave_maior_prefixo);
+  // char *c = "zebraolho";
+  // char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, c);
+  // printf("\n\nMaior prefixo de %s é %s\n", c, chave_maior_prefixo);
 
   // LISTA_Destruir(l);
 
