@@ -23,9 +23,6 @@ static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* lista_
     char* palavra_encontrada = calloc(strlen(pilha_auxiliar->vetor)+1, sizeof(char));
     memcpy(palavra_encontrada, pilha_auxiliar->vetor, pilha_auxiliar->prox);
     LISTA_Inserir(lista_palavras, palavra_encontrada);
-    Pilha_Remover(pilha_auxiliar);
-
-    return;
   }
 
   for (int i = 0; i < TAMANHO_ALFABETO; i++){
@@ -98,52 +95,24 @@ LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
   return l;
 }
 
-// char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
-//   char* maior_prefixo;
-//   int contador = 0;
-//   LISTA* lista_palavras = LISTA_Criar();
-//   int tam = strlen(s);
-
-//   do {
-//     maior_prefixo = calloc(tam-contador+1, sizeof(char));
-//     memcpy(maior_prefixo, s, tam-contador);
-//     lista_palavras = TRIE_ChavesComPrefixo(T, maior_prefixo);
-
-//     if (LISTA_isVazia(lista_palavras)) {
-//       free(maior_prefixo);
-//       contador++;
-//     }else {
-//       break;
-//     }
-//   } while (contador < strlen(s));
-
-//   if (contador ==  strlen(s)) maior_prefixo = "";
-
-//   LISTA_Destruir(lista_palavras);
-
-//   return maior_prefixo;
-// }
-
 char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
-  char* chave_maior_prefixo;
+  char* chave_maior_prefixo = "";
   ASCIITrie* TRIE_prefixo;
   char* prefixo;
   int tamanho_string = strlen(s);
   int contador = tamanho_string - 1;
-  LISTA* chaves = LISTA_Criar();
 
-  do {
+  while (contador >= 0) {
     prefixo = calloc(tamanho_string-contador+1, sizeof(char));
     memcpy(prefixo, s, tamanho_string-contador);
     TRIE_prefixo = TRIE_ObterPrefixo(T, prefixo, strlen(prefixo), 0);
 
     if(TRIE_prefixo != NULL && TRIE_prefixo->estado == TRIE_OCUPADO)
-      LISTA_Inserir(chaves, prefixo);
+      if (strlen(prefixo) > strlen(chave_maior_prefixo))
+        chave_maior_prefixo = prefixo;
 
     contador--;
-  } while (contador >= 0);
-
-  chave_maior_prefixo = LISTA_MaiorPalavra(chaves);
+  }
 
   return chave_maior_prefixo;
 }
