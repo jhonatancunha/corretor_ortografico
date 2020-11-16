@@ -36,7 +36,7 @@ int LISTA_isVazia (LISTA* l) { //refatoração: verificar se a lista realmente e
 
 void LISTA_Imprimir (LISTA* l) {
   for (int i = 0; i < l->quantidade_atual; i++) {
-    printf("%s\n", l->vetor[i]);
+    printf("%s, ", l->vetor[i]);
   }
 }
 

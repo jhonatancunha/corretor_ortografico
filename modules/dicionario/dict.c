@@ -5,6 +5,7 @@
 
 #include "dict.h"
 #include "../pilha/pilha.h"
+#include "../busca_aproximada/busca_aproximada.h"
 
 ASCIITrie* criarDicionario(char *dicionario){
   FILE *arq = fopen(dicionario, "r");
@@ -34,6 +35,45 @@ ASCIITrie* criarDicionario(char *dicionario){
 
 void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
   ASCIITrie *aux = AT_Buscar(dicionario, texto);
-  if(aux == NULL) printf("%s nao encontrado!\n", texto);
-  // else printf("%s encontrado!\n", texto);
+  if(aux == NULL){
+    printf("palavra nao esta no dicionario: %s\n", texto);
+    printf("sugestoes:\n");
+
+    //REGRA 1
+    //ALTERNANDO CORIGNGA EX = *ATS - R*ATS- RA*S - RAT*
+    char *padrao = calloc(strlen(texto)+1, sizeof(char));
+    memcpy(padrao, texto, strlen(texto));
+    for(int i = 0; i < strlen(padrao); i++){
+      char antes = padrao[i];
+      padrao[i] = '*';
+      LISTA *l_coringa = TRIE_ChavesQueCasam(dicionario, padrao, 0);
+      padrao[i] = antes;
+
+      LISTA_Imprimir(l_coringa);
+    }
+    free(padrao);
+  
+    //REGRA 2
+    if(strlen(texto) > 5){
+      char *caso1 = calloc(strlen(texto), sizeof(char));
+      char *caso2 = calloc(strlen(texto)-1, sizeof(char));
+
+
+      memcpy(caso1, texto, strlen(texto)-1);
+      LISTA *l1 = TRIE_ChavesComPrefixo(dicionario, caso1);
+ 
+      memcpy(caso2, texto, strlen(texto)-2);
+      LISTA *l2 = TRIE_ChavesComPrefixo(dicionario, caso2);
+
+      free(caso1);
+      free(caso2);
+      LISTA_Imprimir(l1);
+      LISTA_Imprimir(l2);
+    }
+
+
+    // char *maior = TRIE_ChaveMaiorPrefixoDe(dicionario, texto);
+    // printf("%s", maior);
+    printf("\n\n");
+  }
 }

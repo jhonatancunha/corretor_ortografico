@@ -13,8 +13,7 @@ static ASCIITrie* TRIE_ObterPrefixo (ASCIITrie* T, unsigned char* prefixo, int t
   return TRIE_ObterPrefixo(T->filhos[prefixo[p]-97], prefixo, tamanho, p+1);
 }
 
-static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* lista_palavras, 
-Pilha* pilha_auxiliar) {
+static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* lista_palavras, Pilha* pilha_auxiliar) {
 
   if (dicionario == NULL){
     Pilha_Remover(pilha_auxiliar);
@@ -94,7 +93,6 @@ LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
   memcpy(string, padrao, strlen(padrao));
   LISTA *l = LISTA_Criar();
   Pilha *p = Pilha_Criar();
-
   ObterChavesQueCasam(l, dicionario, p, string, 0);
 
   Pilha_Destruir(p);
@@ -106,13 +104,15 @@ char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
   char* maior_prefixo;
   int contador = 0;
   LISTA* lista_palavras = LISTA_Criar();
+  int tam = strlen(s);
 
   do {
-    maior_prefixo = calloc(sizeof(char), strlen(s)-contador);
-    memcpy(maior_prefixo, s, strlen(s)-contador);
+    maior_prefixo = calloc(tam-contador+1, sizeof(char));
+    memcpy(maior_prefixo, s, tam-contador);
     lista_palavras = TRIE_ChavesComPrefixo(T, maior_prefixo);
 
     if (LISTA_isVazia(lista_palavras)) {
+      free(maior_prefixo);
       contador++;
     }else {
       break;

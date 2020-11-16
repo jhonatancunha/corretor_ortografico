@@ -54,29 +54,33 @@ void formataEntradaString(ASCIITrie *dict, char *string){
 int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
   
-  // char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
+  char texto[] = "saladq";
 
-  // formataEntradaString(dict, string);
 
-  LISTA *l = TRIE_ChavesQueCasam(dict, "sala", 2);
-  LISTA_Imprimir(l);
-  // formataEntrada(dict, "testes/casmurro2.txt");
+  char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
+  formataEntradaString(dict, string);
 
-  printf("\n");
+  // LISTA *l = TRIE_ChavesQueCasam(dict, "sala", 2);
+  // LISTA_Imprimir(l);
+  // // formataEntrada(dict, "testes/casmurro2.txt");
 
-  // TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
-  LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "zarabata");
-  LISTA_Imprimir(lista_palavras);
-  LISTA_Destruir(lista_palavras);
+  // printf("\n");
+
+  // // TESTE DA FUNÇÂO TRIE_ChavesComPrefixo()
+  // LISTA* lista_palavras = TRIE_ChavesComPrefixo(dict, "zarabata");
+  // LISTA_Imprimir(lista_palavras);
+  // LISTA_Destruir(lista_palavras);
+
 
   // TESTE DA FUNÇÃO TRIE_ChaveMaiorPrefixoDe()
-  char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, "zarabatane");
-  printf("Maior prefixo de ZARABATANE é %s\n", chave_maior_prefixo);
-  lista_palavras = TRIE_ChavesComPrefixo(dict, chave_maior_prefixo);
-  printf("\n\nTESTE:\n");
-  LISTA_Imprimir(lista_palavras);
+  // char *c = "zebraolho";
+  // char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dict, c);
+  // printf("Maior prefixo de zebraolho é %s\n", chave_maior_prefixo);
+  // lista_palavras = TRIE_ChavesComPrefixo(dict, chave_maior_prefixo);
+  // printf("\n\nTESTE:\n");
+  // LISTA_Imprimir(lista_palavras);
 
-  LISTA_Destruir(l);
+  // LISTA_Destruir(l);
 
   return 0;
 }
