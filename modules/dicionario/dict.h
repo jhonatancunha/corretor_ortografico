@@ -4,6 +4,8 @@
 
 ASCIITrie* criarDicionario(char *dicionario);
 
-void CorrigirOrtografia(ASCIITrie* dicionario, char* texto);
+ASCIITrie* CorrigirOrtografia(ASCIITrie* dicionario, char* texto);
 
 LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras);
+
+void Preenche_Trie_Sugestoes(ASCIITrie** trie,LISTA* l);

@@ -5,6 +5,7 @@
 
 #include "modules/dicionario/dict.h"
 #include "modules/busca_aproximada/busca_aproximada.h"
+#include "modules/trie/trie.h"
 
 void formataEntrada(ASCIITrie *dict, char *arquivo){
   FILE *arq = fopen(arquivo, "r");
@@ -23,7 +24,7 @@ void formataEntrada(ASCIITrie *dict, char *arquivo){
     };
 
     if(i > 0) {
-      CorrigirOrtografia(dict, string);
+      ASCIITrie *trie = CorrigirOrtografia(dict, string);
       qtdpalavras += 1;
     }
     free(string);
@@ -42,7 +43,9 @@ void formataEntradaString(ASCIITrie *dict, char *string){
     if(!isspace(string[j]) && !ispunct(string[j]) && string[j] != 0){
       stringAux[i++] = tolower(string[j]);
     }else{
-      if(i > 0) CorrigirOrtografia(dict, stringAux);
+      if(i > 0) {
+        ASCIITrie *trie = CorrigirOrtografia(dict, stringAux);
+      }
       free(stringAux);
       stringAux = calloc(LARGEST_WORD, sizeof(char));
       i = 0;
