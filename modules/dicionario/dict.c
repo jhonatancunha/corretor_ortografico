@@ -58,6 +58,7 @@ ASCIITrie* CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
       padrao[i] = antes;
 
       Preenche_Trie_Sugestoes(&trie, l_coringa);
+      LISTA_Destruir(l_coringa);
     }
     free(padrao);
   
@@ -78,6 +79,8 @@ ASCIITrie* CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
 
       Preenche_Trie_Sugestoes(&trie, l1);
       Preenche_Trie_Sugestoes(&trie, l2);
+      LISTA_Destruir(l1);
+      LISTA_Destruir(l2);
     }
 
 
