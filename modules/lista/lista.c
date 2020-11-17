@@ -8,7 +8,7 @@ LISTA* LISTA_Criar () {
   nova->tamanho = 10;
   nova->vetor = malloc(sizeof(char*) * nova->tamanho);
 
-  for(int i = 0; i < nova->tamanho; i++) nova->vetor[i] = NULL;
+  for (int i = 0; i < nova->tamanho; i++) nova->vetor[i] = NULL;
 
   nova->quantidade_atual = 0;
 
@@ -50,10 +50,11 @@ void LISTA_Imprimir (LISTA* l) {
   for (int i = 0; i < l->quantidade_atual; i++) printf("%s, ", l->vetor[i]);
 }
 
-void LISTA_Destruir (LISTA* l) {
-  for (int i = 0; i < l->tamanho; i++) free(l->vetor[i]);  
+void LISTA_Destruir (LISTA** l) {
+  for (int i = 0; i < (*l)->tamanho; i++) free((*l)->vetor[i]);  
 
-  free(l->vetor);
-  free(l);
+  free((*l)->vetor);
+  free(*l);
+  *l = NULL;
 }
 

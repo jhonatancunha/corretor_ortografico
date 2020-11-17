@@ -65,7 +65,7 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
       padrao[i] = antes;
 
       Preenche_Trie_Sugestoes(&trie, l_coringa);
-      LISTA_Destruir(l_coringa);
+      LISTA_Destruir(&l_coringa);
     }
     free(padrao);
   
@@ -85,22 +85,22 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
 
       Preenche_Trie_Sugestoes(&trie, l1);
       Preenche_Trie_Sugestoes(&trie, l2);
-      LISTA_Destruir(l1);
-      LISTA_Destruir(l2);
+      LISTA_Destruir(&l1);
+      LISTA_Destruir(&l2);
     }
-
 
     //REGRA 3
     char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dicionario, texto);
-    if(strlen(chave_maior_prefixo) > 0) AT_Inserir(&trie, chave_maior_prefixo, 1);
-
+    if(chave_maior_prefixo != NULL){
+      AT_Inserir(&trie, chave_maior_prefixo, 1);
+      free(chave_maior_prefixo);
+    }
     LISTA *total = TRIE_ChavesComPrefixo(trie, "");
     qsort(total->vetor, total->quantidade_atual, sizeof(char*), compare);
 
-    free(chave_maior_prefixo);
     AT_Destruir(trie);
     LISTA_Imprimir(total);
-    LISTA_Destruir(total);
+    LISTA_Destruir(&total);
     printf("\n\n");
   }
 }

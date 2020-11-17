@@ -97,31 +97,33 @@ LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
 }
 
 char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
-  char* chave_maior_prefixo = "";
-  ASCIITrie* TRIE_prefixo;
+  LISTA *prefixos = LISTA_Criar();
+  ASCIITrie* TRIE_prefixo = NULL;
   char* prefixo;
-  int tamanho_string = strlen(s);
-  int contador = tamanho_string - 1;
+  int contador = strlen(s) - 1;
 
   while (contador >= 0) {
-    prefixo = calloc((tamanho_string-contador)+1, sizeof(char));
-    memcpy(prefixo, s, (tamanho_string-contador));
+    prefixo = calloc((strlen(s)-contador)+1, sizeof(char));
+    memcpy(prefixo, s, (strlen(s)-contador));
     TRIE_prefixo = TRIE_ObterPrefixo(T, prefixo, strlen(prefixo), 0);
 
-    if(TRIE_prefixo != NULL && TRIE_prefixo->estado == TRIE_OCUPADO){
-      if (strlen(prefixo) > strlen(chave_maior_prefixo)){
-        free(chave_maior_prefixo);
-        chave_maior_prefixo = prefixo;
-      }
-    }else{
-      free(prefixo);
-    }
-    
+    if(TRIE_prefixo != NULL && TRIE_prefixo->estado == TRIE_OCUPADO) 
+      LISTA_Inserir(prefixos, prefixo);
+    else free(prefixo);
+  
     contador--;
   }
+  
+  if(TRIE_prefixo != NULL) AT_Destruir(TRIE_prefixo);
 
-  AT_Destruir(TRIE_prefixo);
-  free(prefixo);
+  char *maior = LISTA_MaiorPalavra(prefixos);
+  char *aux = NULL;
+  if(maior != NULL){
+    aux = calloc(strlen(maior)+1, sizeof(char));
+    memcpy(aux, maior, strlen(maior));
+  }
+  
+  LISTA_Destruir(&prefixos);
 
-  return chave_maior_prefixo;
+  return aux;
 }
