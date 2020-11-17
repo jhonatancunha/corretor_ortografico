@@ -7,6 +7,9 @@ LISTA* LISTA_Criar () {
   LISTA* nova = malloc(sizeof(LISTA));
   nova->tamanho = 10;
   nova->vetor = malloc(sizeof(char*) * nova->tamanho);
+
+  for(int i = 0; i < nova->tamanho; i++) nova->vetor[i] = NULL;
+
   nova->quantidade_atual = 0;
 
   return nova;
