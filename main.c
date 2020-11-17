@@ -61,6 +61,6 @@ int main(int argc, char** argv){
   formataEntradaString(dict, string);
   // formataEntrada(dict, "testes/casmurro2.txt");
 
-  AT_Destuir(dict);
+  AT_Destruir(dict);
   return 0;
 }

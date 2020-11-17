@@ -26,4 +26,4 @@ void AT_Remover_Iterativo(ASCIITrie **T, unsigned char *chave);
 
 void AT_Imprimir(ASCIITrie *T);
 
-void AT_Destuir(ASCIITrie *T);
+void AT_Destruir(ASCIITrie *T);

@@ -90,6 +90,7 @@ LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
   Pilha *p = Pilha_Criar();
   ObterChavesQueCasam(l, dicionario, p, string, 0);
 
+  free(string);
   Pilha_Destruir(p);
 
   return l;
@@ -104,7 +105,7 @@ char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
 
   while (contador >= 0) {
     prefixo = calloc(tamanho_string-contador+1, sizeof(char));
-    memcpy(prefixo, s, tamanho_string-contador);
+    memcpy(prefixo, s, tamanho_string-contador+1);
     TRIE_prefixo = TRIE_ObterPrefixo(T, prefixo, strlen(prefixo), 0);
 
     if(TRIE_prefixo != NULL && TRIE_prefixo->estado == TRIE_OCUPADO)
@@ -113,6 +114,9 @@ char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
 
     contador--;
   }
+
+  AT_Destruir(TRIE_prefixo);
+  free(prefixo);
 
   return chave_maior_prefixo;
 }
