@@ -48,7 +48,7 @@ void LISTA_Imprimir (LISTA* l) {
 }
 
 void LISTA_Destruir (LISTA* l) {
-  for (int i = 0; i < l->quantidade_atual; i++) free(l->vetor[i]);  
+  for (int i = 0; i < l->tamanho; i++) free(l->vetor[i]);  
 
   free(l->vetor);
   free(l);
