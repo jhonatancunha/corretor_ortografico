@@ -139,3 +139,22 @@ static void AT_Imprimir_Recursivo(ASCIITrie *T, unsigned char c, int nivel){
 void AT_Imprimir(ASCIITrie *T){
   AT_Imprimir_Recursivo(T, 0, 0);
 }
+
+static void AT_Destruir_R(ASCIITrie *T){
+  if(T == NULL) return;
+  int i;
+
+  for(i = 0; i < 26; i++){
+    if(T->filhos[i] != NULL){
+      AT_Destruir_R(T->filhos[i]);
+      T->filhos[i] = NULL;
+    }
+  }
+
+  free(T);
+}
+
+void AT_Destuir(ASCIITrie *T){
+  AT_Destruir_R(T);
+}
+

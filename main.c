@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "modules/dicionario/strcmpdict.h"
+#include "modules/dicionario/dict.h"
 #include "modules/busca_aproximada/busca_aproximada.h"
 #include "modules/trie/trie.h"
 
@@ -60,5 +60,7 @@ int main(int argc, char** argv){
   char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
   formataEntradaString(dict, string);
   // formataEntrada(dict, "testes/casmurro2.txt");
+
+  AT_Destuir(dict);
   return 0;
 }
