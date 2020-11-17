@@ -108,9 +108,15 @@ char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s) {
     memcpy(prefixo, s, tamanho_string-contador+1);
     TRIE_prefixo = TRIE_ObterPrefixo(T, prefixo, strlen(prefixo), 0);
 
-    if(TRIE_prefixo != NULL && TRIE_prefixo->estado == TRIE_OCUPADO)
+    if(TRIE_prefixo != NULL && TRIE_prefixo->estado == TRIE_OCUPADO){
       if (strlen(prefixo) > strlen(chave_maior_prefixo))
         chave_maior_prefixo = prefixo;
+      else
+        free(prefixo);
+    }else{
+      free(prefixo);
+    }
+    
 
     contador--;
   }
