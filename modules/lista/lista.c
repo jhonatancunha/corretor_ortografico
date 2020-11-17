@@ -54,18 +54,3 @@ void LISTA_Destruir (LISTA* l) {
   free(l);
 }
 
-static void troca(char **vet, int maior, int menor){
-  char *aux = vet[maior];
-  vet[maior] = vet[menor];
-  vet[menor] = aux;
-}
-
-void ordenaLista(LISTA *l){
-  for(int i = l->quantidade_atual; i > 0; i--){
-    for(int j = 0; j < i-1; j++){
-      char *aux = l->vetor[j];
-      char *aux2 = l->vetor[j+1];
-      if(strlen(aux) < strlen(aux2)) troca(l->vetor, j, j+1);
-    }
-  }
-}

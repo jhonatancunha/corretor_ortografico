@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "modules/dicionario/dict.h"
+#include "modules/dicionario/strcmpdict.h"
 #include "modules/busca_aproximada/busca_aproximada.h"
 #include "modules/trie/trie.h"
 

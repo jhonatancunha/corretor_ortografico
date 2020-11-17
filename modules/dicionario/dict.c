@@ -7,6 +7,13 @@
 #include "../pilha/pilha.h"
 #include "../busca_aproximada/busca_aproximada.h"
 
+static int compare (const void * a, const void * b ) {
+    const char *aux_a = *(char**)a;
+    const char *aux_b = *(char**)b;
+    
+    return strlen(aux_b) - strlen(aux_a);
+}
+
 ASCIITrie* criarDicionario(char *dicionario){
   FILE *arq = fopen(dicionario, "r");
   if(arq == NULL) return NULL;
@@ -88,8 +95,9 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     if(strlen(chave_maior_prefixo) > 0) AT_Inserir(&trie, chave_maior_prefixo, 1);
 
     LISTA *total = TRIE_ChavesComPrefixo(trie, "");
-    ordenaLista(total);
+    qsort(total->vetor, total->quantidade_atual, sizeof(char*), compare);
     LISTA_Imprimir(total);
     printf("\n\n");
   }
 }
+

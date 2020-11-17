@@ -1,7 +1,5 @@
 #pragma once
 
-#define LARGEST_WORD 46
-
 typedef enum ASCIITrie_Estado{
   TRIE_LIVRE,
   TRIE_OCUPADO
