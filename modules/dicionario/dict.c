@@ -98,7 +98,7 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     qsort(total->vetor, total->quantidade_atual, sizeof(char*), compare);
 
     free(chave_maior_prefixo);
-    AT_Destuir(trie);
+    AT_Destruir(trie);
     LISTA_Imprimir(total);
     printf("\n\n");
   }
