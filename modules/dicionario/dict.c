@@ -100,7 +100,7 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     free(chave_maior_prefixo);
     AT_Destruir(trie);
     LISTA_Imprimir(total);
-    printf("\n\n");
+    LISTA_Destruir(total);
   }
 }
 
