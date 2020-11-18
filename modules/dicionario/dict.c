@@ -55,7 +55,7 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     printf("sugestoes:\n");
 
     //REGRA 1
-    regra_1_alterna_coringa(dicionario, &trie, texto);
+    regra1_alterna_coringa(dicionario, &trie, texto, 0);
   
     //REGRA 2
     regra2_prefixo_grande(dicionario, &trie, texto);
