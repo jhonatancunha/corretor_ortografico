@@ -19,8 +19,11 @@ static void LISTA_Redimensionar (LISTA* l) {
   int novo_tamanho = l->tamanho + 10;
   char** novo_vetor = malloc(sizeof(char*) * novo_tamanho);
   
+  for (int i = 0; i < novo_tamanho; i++) novo_vetor[i] = NULL;
+
   for (int i = 0; i < l->tamanho; i++) novo_vetor[i] = l->vetor[i];
   
+  free(l->vetor);
   l->vetor = novo_vetor;
   l->tamanho = novo_tamanho;
 }
@@ -51,8 +54,8 @@ void LISTA_Imprimir (LISTA* l) {
 }
 
 void LISTA_Destruir (LISTA** l) {
-  for (int i = 0; i < (*l)->tamanho; i++) free((*l)->vetor[i]);  
-
+  for (int i = 0; i < (*l)->tamanho; i++) free((*l)->vetor[i]);
+  
   free((*l)->vetor);
   free(*l);
   *l = NULL;
