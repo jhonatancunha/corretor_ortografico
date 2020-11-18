@@ -63,3 +63,29 @@ void regra4_coringa_no_prefixo_grande (ASCIITrie *dict, ASCIITrie **trie, char* 
     free(caso2);
   }
 }
+
+void regra5_alternando_dois_coringas(ASCIITrie *dict, ASCIITrie **trie, char* texto){
+  char *string = calloc(strlen(texto)+1, sizeof(char));
+  memcpy(string, texto, strlen(texto));
+
+  char aux1;
+  char aux2;
+
+  for(int i = 0; i < strlen(string); i++){
+    aux1 = string[i];
+    for(int j = i+1; j < strlen(string); j++){
+      aux2 = string[j];
+      
+      string[i] = '*';
+      string[j] = '*';
+      LISTA *l_coringa = TRIE_ChavesQueCasam(dict, string, 0);
+
+      string[i] = aux1;
+      string[j] = aux2;
+
+      Preenche_Trie_Sugestoes(trie, l_coringa);
+      LISTA_Destruir(&l_coringa);
+    }
+  }
+  free(string);
+}

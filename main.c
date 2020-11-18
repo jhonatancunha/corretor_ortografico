@@ -59,9 +59,18 @@ int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
 
   char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
-  formataEntradaString(dict, string);
-  // formataEntrada(dict, "testes/casmurro2.txt");
+  // formataEntradaString(dict, string);
+  formataEntrada(dict, "testes/casmurro2.txt");
 
-  AT_Destruir(dict);
+  // ASCIITrie *sugestoes = NULL;
+  // char *texto =  "cxmportamenyo";
+  // regra5_alternando_dois_coringas(dict, &sugestoes, texto);
+  // LISTA *total = TRIE_ChavesComPrefixo(sugestoes, "");
+
+  // LISTA_Imprimir(total);
+  // LISTA_Destruir(&total);
+
+  // AT_Destruir(sugestoes);
+  // AT_Destruir(dict);
   return 0;
 }
