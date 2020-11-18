@@ -5,5 +5,6 @@ all:
 	gcc -g -c modules/trie/trie.c
 	gcc -g -c modules/busca_aproximada/busca_aproximada.c
 	gcc -g -c modules/dicionario/dict.c
+	gcc -g -c modules/regras/regras.c
 	gcc -o main *.o
 	

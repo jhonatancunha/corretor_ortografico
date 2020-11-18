@@ -4,8 +4,8 @@
 #include <ctype.h>
 
 #include "dict.h"
-#include "../pilha/pilha.h"
-#include "../busca_aproximada/busca_aproximada.h"
+
+#include "../regras/regras.h"
 
 static int compare (const void * a, const void * b ) {
     const char *aux_a = *(char**)a;
@@ -55,46 +55,14 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     printf("sugestoes:\n");
 
     //REGRA 1
-    //ALTERNANDO CORIGNGA EX = *ATS - R*ATS- RA*S - RAT*
-    char *padrao = calloc(strlen(texto)+1, sizeof(char));
-    memcpy(padrao, texto, strlen(texto));
-    for(int i = 0; i < strlen(padrao); i++){
-      char antes = padrao[i];
-      padrao[i] = '*';
-      LISTA *l_coringa = TRIE_ChavesQueCasam(dicionario, padrao, 0);
-      padrao[i] = antes;
-
-      Preenche_Trie_Sugestoes(&trie, l_coringa);
-      LISTA_Destruir(&l_coringa);
-    }
-    free(padrao);
+    regra_1_alterna_coringa(dicionario, &trie, texto);
   
     //REGRA 2
-    if(strlen(texto) > 5){
-      char *caso1 = calloc(strlen(texto), sizeof(char));
-      char *caso2 = calloc(strlen(texto)-1, sizeof(char));
-
-      memcpy(caso1, texto, strlen(texto)-1);
-      LISTA *l1 = TRIE_ChavesComPrefixo(dicionario, caso1);
- 
-      memcpy(caso2, texto, strlen(texto)-2);
-      LISTA *l2 = TRIE_ChavesComPrefixo(dicionario, caso2);
-
-      free(caso1);
-      free(caso2);
-
-      Preenche_Trie_Sugestoes(&trie, l1);
-      Preenche_Trie_Sugestoes(&trie, l2);
-      LISTA_Destruir(&l1);
-      LISTA_Destruir(&l2);
-    }
+    regra2_prefixo_grande(dicionario, &trie, texto);
 
     //REGRA 3
-    char* chave_maior_prefixo = TRIE_ChaveMaiorPrefixoDe(dicionario, texto);
-    if(chave_maior_prefixo != NULL){
-      AT_Inserir(&trie, chave_maior_prefixo, 1);
-      free(chave_maior_prefixo);
-    }
+    regra3_maior_chave_de_prefixo(dicionario, &trie, texto);
+
     LISTA *total = TRIE_ChavesComPrefixo(trie, "");
     qsort(total->vetor, total->quantidade_atual, sizeof(char*), compare);
 
