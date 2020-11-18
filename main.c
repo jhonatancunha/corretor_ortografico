@@ -62,15 +62,5 @@ int main(int argc, char** argv){
   // formataEntradaString(dict, string);
   formataEntrada(dict, "testes/casmurro2.txt");
 
-  // ASCIITrie *sugestoes = NULL;
-  // char *texto =  "cxmportamenyo";
-  // regra5_alternando_dois_coringas(dict, &sugestoes, texto);
-  // LISTA *total = TRIE_ChavesComPrefixo(sugestoes, "");
-
-  // LISTA_Imprimir(total);
-  // LISTA_Destruir(&total);
-
-  // AT_Destruir(sugestoes);
-  // AT_Destruir(dict);
   return 0;
 }
