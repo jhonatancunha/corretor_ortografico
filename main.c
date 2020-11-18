@@ -6,6 +6,7 @@
 #include "modules/dicionario/dict.h"
 #include "modules/busca_aproximada/busca_aproximada.h"
 #include "modules/trie/trie.h"
+#include "modules/regras/regras.h"
 
 void formataEntrada(ASCIITrie *dict, char *arquivo){
   FILE *arq = fopen(arquivo, "r");

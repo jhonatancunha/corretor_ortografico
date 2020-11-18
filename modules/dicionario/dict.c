@@ -63,6 +63,9 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     //REGRA 3
     regra3_maior_chave_de_prefixo(dicionario, &trie, texto);
 
+    //REGRA 4
+    regra4_coringa_no_prefixo_grande(dicionario, &trie, texto);
+
     LISTA *total = TRIE_ChavesComPrefixo(trie, "");
     qsort(total->vetor, total->quantidade_atual, sizeof(char*), compare);
 
