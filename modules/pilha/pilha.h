@@ -9,5 +9,5 @@ typedef struct Pilha {
 Pilha* Pilha_Criar ();
 void Pilha_Inserir (Pilha* l, char c);
 void Pilha_Remover (Pilha* l);
-void Pilha_Destruir (Pilha* l);
+void Pilha_Destruir (Pilha** l);
 void Pilha_Imprimir (Pilha* l);

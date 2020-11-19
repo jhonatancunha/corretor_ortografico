@@ -60,7 +60,8 @@ int main(int argc, char** argv){
 
   char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
   // formataEntradaString(dict, string);
-  formataEntrada(dict, "testes/casmurro2.txt");
+  formataEntrada(dict, "testes/casmurro_all.txt");
 
+  AT_Destruir(dict);
   return 0;
 }

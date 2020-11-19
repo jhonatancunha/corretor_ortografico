@@ -5,7 +5,7 @@
 Pilha* Pilha_Criar () {
   Pilha* nova = malloc(sizeof(Pilha));
   nova->tamanho = 10;
-  nova->vetor = calloc(10, sizeof(char));
+  nova->vetor = calloc(nova->tamanho+1, sizeof(char));
   nova->prox = 0;
 
   return nova;
@@ -13,12 +13,13 @@ Pilha* Pilha_Criar () {
 
 static void Pilha_Redimensionar (Pilha* pilha) {
   int novo_tamanho = pilha->tamanho + 10;
-  char* novo_vetor = malloc(sizeof(char) * novo_tamanho);
+  char* novo_vetor = calloc(novo_tamanho+1, sizeof(char));
   
   for (int i = 0; i < pilha->tamanho; i++) {
     novo_vetor[i] = pilha->vetor[i];
   }
 
+  free(pilha->vetor);
   pilha->vetor = novo_vetor;
   pilha->tamanho = novo_tamanho;
 }
@@ -38,7 +39,8 @@ void Pilha_Remover (Pilha* pilha) {
   pilha->vetor[pilha->prox--];
 }
 
-void Pilha_Destruir (Pilha* pilha) {
-  free(pilha->vetor);
-  free(pilha);
+void Pilha_Destruir (Pilha** pilha) {
+  free((*pilha)->vetor);
+  free(*pilha);
+  *pilha = NULL;
 }
