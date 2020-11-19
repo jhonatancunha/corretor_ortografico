@@ -50,7 +50,12 @@ char* LISTA_MaiorPalavra (LISTA* l) {
 }
 
 void LISTA_Imprimir (LISTA* l) {
-  for (int i = 0; i < l->quantidade_atual; i++) printf("%s, ", l->vetor[i]);
+  if (LISTA_isVazia(l)) printf("Nenhuma sugestao encontrada!\n");
+
+  for (int i = 0; i < l->quantidade_atual; i++) {
+    printf("%s", l->vetor[i]);
+    printf("%s", i == l->quantidade_atual-1 ? "\n" : ", ");
+  }
 }
 
 void LISTA_Destruir (LISTA** l) {

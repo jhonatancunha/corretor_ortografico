@@ -4,7 +4,7 @@
 #include <ctype.h>
 
 #include "modules/dicionario/dict.h"
-#include "modules/busca_aproximada/busca_aproximada.h"
+#include "modules/trie/busca_aproximada/busca_aproximada.h"
 #include "modules/trie/trie.h"
 #include "modules/regras/regras.h"
 

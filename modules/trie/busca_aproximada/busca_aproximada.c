@@ -1,9 +1,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "../trie/trie.h"
-#include "../pilha/pilha.h"
-#include "../lista/lista.h"
+#include "../trie.h"
+#include "../../pilha/pilha.h"
+#include "../../lista/lista.h"
 
 #define TAMANHO_ALFABETO 26
 

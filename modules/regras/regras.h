@@ -2,7 +2,7 @@
 #include "../dicionario/dict.h"
 #include "../trie/trie.h"
 #include "../pilha/pilha.h"
-#include "../busca_aproximada/busca_aproximada.h"
+#include "../trie/busca_aproximada/busca_aproximada.h"
 
 //REGRA 1
 //ALTERNANDO CORIGNGA EX = *ATS - R*ATS- RA*S - RAT*
