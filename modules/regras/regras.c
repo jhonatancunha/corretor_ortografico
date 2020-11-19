@@ -65,7 +65,7 @@ void regra4_coringa_no_prefixo_grande (ASCIITrie *dict, ASCIITrie **trie, char* 
 }
 
 void regra5_alternando_dois_coringas(ASCIITrie *dict, ASCIITrie **trie, char* texto){
-  if(strlen(texto) < 4) return;
+  if(strlen(texto) <= 4) return;
   
   char *string = calloc(strlen(texto)+1, sizeof(char));
   memcpy(string, texto, strlen(texto));
