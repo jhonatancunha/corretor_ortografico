@@ -2,9 +2,7 @@
 
 #include "../trie/trie.h"
 #include "../lista/lista.h"
-#include "../regras/regras.h"
-
-#define LARGEST_WORD 47
+#include "regras/regras.h"
 
 void verificaString (ASCIITrie *dict, char *string);
 void verificaArquivo (ASCIITrie *dict, char *arquivo);

@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../dicionario/dict.h"
-#include "../trie/trie.h"
-#include "../pilha/pilha.h"
-#include "../trie/busca_aproximada/busca_aproximada.h"
-#include "../corretor/corretor.h"
+#include "../../dicionario/dict.h"
+#include "../../trie/trie.h"
+#include "../../pilha/pilha.h"
+#include "../../trie/busca_aproximada/busca_aproximada.h"
+#include "../corretor.h"
 
 //REGRA 1
 //ALTERNANDO CORIGNGA EX = *ATS - R*ATS- RA*S - RAT*

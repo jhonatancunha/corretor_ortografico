@@ -3,7 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 #include "corretor.h"
-#include "../regras/regras.h"
 
 static int compare (const void * a, const void * b ) {
   const char *aux_a = *(char**)a;
