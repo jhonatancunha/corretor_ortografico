@@ -59,8 +59,8 @@ int main(int argc, char** argv){
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
 
   char string[] = "o rats roeu a roopa do rey de romi pois achov que era queejo";
-  // formataEntradaString(dict, string);
-  formataEntrada(dict, "testes/casmurro_all.txt");
+  formataEntradaString(dict, string);
+  // formataEntrada(dict, "testes/casmurro2.txt");
 
   AT_Destruir(dict);
   return 0;

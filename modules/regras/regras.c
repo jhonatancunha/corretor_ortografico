@@ -65,7 +65,7 @@ void regra4_coringa_no_prefixo_grande (ASCIITrie *dict, ASCIITrie **trie, char* 
 }
 
 void regra5_alternando_dois_coringas(ASCIITrie *dict, ASCIITrie **trie, char* texto){
-  if(strlen(texto) < 4) return;
+  if(strlen(texto) <= 3) return;
   
   char *string = calloc(strlen(texto)+1, sizeof(char));
   memcpy(string, texto, strlen(texto));
@@ -93,22 +93,21 @@ void regra5_alternando_dois_coringas(ASCIITrie *dict, ASCIITrie **trie, char* te
 }
 
 void regra6_anulando_letras (ASCIITrie *dict, ASCIITrie **trie, char* texto) {
-  int i_apg = 0;
+  int i_nulo = 0;
   int j = 0;
 
-  for(int count = 0; count < strlen(texto); count++){
+  for(int c = 0; c < strlen(texto); c++){
     char *aux = calloc(strlen(texto), sizeof(char));
+  
+    for(int i = 0; i < strlen(texto); i++) if(i != i_nulo) aux[j++] = texto[i];
     
-    for(int i = 0; i < strlen(texto);i++){
-      if(i != i_apg) aux[j++] = texto[i];
-    }
     LISTA *l = TRIE_ChavesQueCasam(dict, aux, 0);
     Preenche_Trie_Sugestoes(trie, l);
     LISTA_Destruir(&l);
-
-    i_apg++;
-    j=0;
     free(aux);
+
+    i_nulo++;
+    j=0;
   }
 
 }
