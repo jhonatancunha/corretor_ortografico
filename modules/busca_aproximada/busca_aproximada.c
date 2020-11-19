@@ -20,7 +20,7 @@ static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* lista_
   }
 
   if (dicionario->estado == TRIE_OCUPADO) {
-    char* palavra_encontrada = calloc(strlen(pilha_auxiliar->vetor)+1, sizeof(char));
+    char* palavra_encontrada = calloc(strlen(pilha_auxiliar->vetor)+2, sizeof(char));
     memcpy(palavra_encontrada, pilha_auxiliar->vetor, pilha_auxiliar->prox);
     LISTA_Inserir(lista_palavras, palavra_encontrada);
   }
@@ -38,15 +38,17 @@ static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* lista_
 LISTA* TRIE_ChavesComPrefixo (ASCIITrie* dicionario, char* prefix) {
   Pilha* pilha_auxiliar = Pilha_Criar();
   LISTA* lista_palavras = LISTA_Criar();
-  
-  for (int i = 0; i < strlen(prefix); i++) {
-    Pilha_Inserir(pilha_auxiliar, prefix[i]);
-  }
 
   dicionario = TRIE_ObterPrefixo(dicionario, prefix, strlen(prefix), 0);
-  TRIE_EncontrarChavesComPrefixo(dicionario, lista_palavras, pilha_auxiliar);
 
-  Pilha_Destruir(pilha_auxiliar);
+  if (dicionario != NULL) {
+    for (int i = 0; i < strlen(prefix); i++)
+      Pilha_Inserir(pilha_auxiliar, prefix[i]);
+
+    TRIE_EncontrarChavesComPrefixo(dicionario, lista_palavras, pilha_auxiliar);
+  }
+
+  Pilha_Destruir(&pilha_auxiliar);
 
   return lista_palavras;
 }
@@ -91,7 +93,7 @@ LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
   ObterChavesQueCasam(l, dicionario, p, string, 0);
 
   free(string);
-  Pilha_Destruir(p);
+  Pilha_Destruir(&p);
 
   return l;
 }

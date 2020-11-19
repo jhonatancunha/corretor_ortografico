@@ -6,7 +6,7 @@
 LISTA* LISTA_Criar () {
   LISTA* nova = malloc(sizeof(LISTA));
   nova->tamanho = 10;
-  nova->vetor = malloc(sizeof(char*) * nova->tamanho);
+  nova->vetor = calloc(nova->tamanho, sizeof(char*));
 
   for (int i = 0; i < nova->tamanho; i++) nova->vetor[i] = NULL;
 
@@ -17,7 +17,7 @@ LISTA* LISTA_Criar () {
 
 static void LISTA_Redimensionar (LISTA* l) {
   int novo_tamanho = l->tamanho + 10;
-  char** novo_vetor = malloc(sizeof(char*) * novo_tamanho);
+  char** novo_vetor = calloc(novo_tamanho, sizeof(char*));
   
   for (int i = 0; i < novo_tamanho; i++) novo_vetor[i] = NULL;
 

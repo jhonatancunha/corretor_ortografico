@@ -91,3 +91,24 @@ void regra5_alternando_dois_coringas(ASCIITrie *dict, ASCIITrie **trie, char* te
   }
   free(string);
 }
+
+void regra6_anulando_letras (ASCIITrie *dict, ASCIITrie **trie, char* texto) {
+  int i_apg = 0;
+  int j = 0;
+
+  for(int count = 0; count < strlen(texto); count++){
+    char *aux = calloc(strlen(texto), sizeof(char));
+    
+    for(int i = 0; i < strlen(texto);i++){
+      if(i != i_apg) aux[j++] = texto[i];
+    }
+    LISTA *l = TRIE_ChavesQueCasam(dict, aux, 0);
+    Preenche_Trie_Sugestoes(trie, l);
+    LISTA_Destruir(&l);
+
+    i_apg++;
+    j=0;
+    free(aux);
+  }
+
+}
