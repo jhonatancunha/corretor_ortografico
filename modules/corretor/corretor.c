@@ -32,12 +32,12 @@ void verificaString (ASCIITrie *dict, char *string) {
 }
 
 TAD_ANALISE* verificaArquivo (ASCIITrie *dict, char *arquivo) {
-
   FILE *arq = fopen(arquivo, "r");
+  if(arq == NULL) return NULL;
+
   TAD_ANALISE *analise = TAD_CriarAnalise(arquivo);
   char aux;
   char *string;
-  int qtdpalavras = 0;
   int i;
 
   do{
@@ -55,7 +55,6 @@ TAD_ANALISE* verificaArquivo (ASCIITrie *dict, char *arquivo) {
   }while(aux != EOF);
 
   fclose(arq);
-
   return analise;
 }
 
@@ -123,6 +122,11 @@ void TAD_ImprimirAnalise(TAD_ANALISE *tad){
   printf("\n=============================================================\n");
   printf("\tDADOS OBTIDOS DURANTE A ANALISE DO ARQUIVO");
   printf("\n=============================================================\n");
+  if(tad == NULL){
+    printf("Arquivo de texto  inexistente, por favor informe um diretorio valido!\n");
+    return;
+  }
+  
   printf("Arquivo aberto -> %s\n", tad->arq);
   printf("Total de palavras -> %d palavras\n", tad->totalPalavras);
   printf("Palavras incorretas -> %d palavras\n", tad->qtdIncorretas);
