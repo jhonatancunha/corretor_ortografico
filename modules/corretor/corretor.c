@@ -12,6 +12,7 @@ static int compare (const void * a, const void * b ) {
 }
 
 void verificaString (ASCIITrie *dict, char *string) {
+  TAD_ANALISE *analise = criaTADAnalise();
   char aux;
   char *stringAux = calloc(LARGEST_WORD, sizeof(char));
   int i = 0, j;
@@ -20,9 +21,8 @@ void verificaString (ASCIITrie *dict, char *string) {
     if(!isspace(string[j]) && !ispunct(string[j]) && string[j] != 0){
       stringAux[i++] = tolower(string[j]);
     }else{
-      if(i > 0) {
-        CorrigirOrtografia(dict, stringAux);
-      }
+      if(i > 0) CorrigirOrtografia(dict, stringAux, analise);
+      
       free(stringAux);
       stringAux = calloc(LARGEST_WORD, sizeof(char));
       i = 0;
@@ -31,8 +31,10 @@ void verificaString (ASCIITrie *dict, char *string) {
   free(stringAux);
 }
 
-void verificaArquivo (ASCIITrie *dict, char *arquivo) {
+TAD_ANALISE* verificaArquivo (ASCIITrie *dict, char *arquivo) {
+
   FILE *arq = fopen(arquivo, "r");
+  TAD_ANALISE *analise = criaTADAnalise();
   char aux;
   char *string;
   int qtdpalavras = 0;
@@ -47,15 +49,14 @@ void verificaArquivo (ASCIITrie *dict, char *arquivo) {
       string[i++] = tolower(aux);
     };
 
-    if(i > 0) {
-      CorrigirOrtografia(dict, string);
-      qtdpalavras += 1;
-    }
+    if(i > 0) CorrigirOrtografia(dict, string, analise);
+    
     free(string);
   }while(aux != EOF);
 
-  printf("\n\n%d palavras verificadas!\n", qtdpalavras);
   fclose(arq);
+
+  return analise;
 }
 
 void Preenche_Trie_Sugestoes(ASCIITrie** trie,LISTA* l){
@@ -64,8 +65,10 @@ void Preenche_Trie_Sugestoes(ASCIITrie** trie,LISTA* l){
   }
 }
 
-void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
+void CorrigirOrtografia(ASCIITrie* dicionario, char* texto, TAD_ANALISE *analise){
+  analise->totalPalavras++;
   ASCIITrie *aux = AT_Buscar(dicionario, texto);
+
   if(aux == NULL){
     ASCIITrie *trie = NULL;
 
@@ -92,9 +95,25 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto){
     LISTA *total = TRIE_ChavesComPrefixo(trie, "");
     qsort(total->vetor, total->quantidade_atual, sizeof(char*), compare);
 
+    analise->qtdSugestoes +=  total->quantidade_atual;
+    analise->qtdIncorretas++;
+
     AT_Destruir(trie);
     LISTA_Imprimir(total);
     LISTA_Destruir(&total);
-    printf("\n\n");
   }
+}
+
+TAD_ANALISE* criaTADAnalise(){
+  TAD_ANALISE *tad = malloc(sizeof(TAD_ANALISE));
+  tad->qtdIncorretas = 0;
+  tad->qtdSugestoes = 0;
+  tad->totalPalavras = 0;
+
+  return tad;
+}
+
+void TAD_AnaliseDestruir(TAD_ANALISE **tad){
+  free(*tad);
+  *tad = NULL;
 }

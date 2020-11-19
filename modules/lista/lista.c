@@ -57,7 +57,7 @@ void LISTA_Imprimir (LISTA* l) {
 
   for (int i = 0; i < l->quantidade_atual; i++) {
     printf("%s", l->vetor[i]);
-    printf("%s", i == l->quantidade_atual-1 ? "\n" : ", ");
+    printf("%s", i == l->quantidade_atual-1 ? "\n\n" : ", ");
   }
 }
 
