@@ -1,6 +1,6 @@
-#include "regras.h"
 #include <stdlib.h>
 #include <string.h>
+#include "regras.h"
 
 void regra1_alterna_coringa (ASCIITrie *dict, ASCIITrie **trie, char *texto, int n_extras) {
   char *padrao = calloc(strlen(texto)+1, sizeof(char));
@@ -109,5 +109,4 @@ void regra6_anulando_letras (ASCIITrie *dict, ASCIITrie **trie, char* texto) {
     i_nulo++;
     j=0;
   }
-
 }
