@@ -13,13 +13,7 @@ int main(int argc, char** argv){
   char arq[] = "testes/casmurro2.txt";
   TAD_ANALISE *analise = verificaArquivo(dict, arq);
 
-  printf("\n=============================================================\n");
-  printf("\tDADOS OBTIDOS DURANTE A ANALISE DO ARQUIVO");
-  printf("\n=============================================================\n");
-  printf("Arquivo aberto -> %s\n", arq);
-  printf("Total de palavras -> %d palavras\n", analise->totalPalavras);
-  printf("Palavras incorretas -> %d palavras\n", analise->qtdIncorretas);
-  printf("Media de sugestoes por palavras incorretas -> %.2f\n", (float)analise->qtdSugestoes/analise->qtdIncorretas);
+  TAD_ImprimirAnalise(analise);
 
   AT_Destruir(dict);
   TAD_AnaliseDestruir(&analise);

@@ -12,7 +12,7 @@ static int compare (const void * a, const void * b ) {
 }
 
 void verificaString (ASCIITrie *dict, char *string) {
-  TAD_ANALISE *analise = criaTADAnalise();
+  TAD_ANALISE *analise = TAD_CriarAnalise(string);
   char aux;
   char *stringAux = calloc(LARGEST_WORD, sizeof(char));
   int i = 0, j;
@@ -34,7 +34,7 @@ void verificaString (ASCIITrie *dict, char *string) {
 TAD_ANALISE* verificaArquivo (ASCIITrie *dict, char *arquivo) {
 
   FILE *arq = fopen(arquivo, "r");
-  TAD_ANALISE *analise = criaTADAnalise();
+  TAD_ANALISE *analise = TAD_CriarAnalise(arquivo);
   char aux;
   char *string;
   int qtdpalavras = 0;
@@ -104,11 +104,12 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto, TAD_ANALISE *analise
   }
 }
 
-TAD_ANALISE* criaTADAnalise(){
+TAD_ANALISE* TAD_CriarAnalise(char *arq){
   TAD_ANALISE *tad = malloc(sizeof(TAD_ANALISE));
   tad->qtdIncorretas = 0;
   tad->qtdSugestoes = 0;
   tad->totalPalavras = 0;
+  tad->arq = arq;
 
   return tad;
 }
@@ -116,4 +117,14 @@ TAD_ANALISE* criaTADAnalise(){
 void TAD_AnaliseDestruir(TAD_ANALISE **tad){
   free(*tad);
   *tad = NULL;
+}
+
+void TAD_ImprimirAnalise(TAD_ANALISE *tad){
+  printf("\n=============================================================\n");
+  printf("\tDADOS OBTIDOS DURANTE A ANALISE DO ARQUIVO");
+  printf("\n=============================================================\n");
+  printf("Arquivo aberto -> %s\n", tad->arq);
+  printf("Total de palavras -> %d palavras\n", tad->totalPalavras);
+  printf("Palavras incorretas -> %d palavras\n", tad->qtdIncorretas);
+  printf("Media de sugestoes por palavras incorretas -> %.2f\n", (float)tad->qtdSugestoes/tad->qtdIncorretas);
 }

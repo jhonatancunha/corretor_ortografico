@@ -8,10 +8,12 @@ typedef struct TAD_ANALISE{
   int totalPalavras;
   int qtdIncorretas;
   int qtdSugestoes;
+  char *arq;
 }TAD_ANALISE;
 
-TAD_ANALISE* criaTADAnalise();
+TAD_ANALISE* TAD_CriarAnalise(char *arq);
 void TAD_AnaliseDestruir(TAD_ANALISE **tad);
+void TAD_ImprimirAnalise(TAD_ANALISE *tad);
 
 void verificaString (ASCIITrie *dict, char *string);
 TAD_ANALISE* verificaArquivo (ASCIITrie *dict, char *arquivo);
