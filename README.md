@@ -10,7 +10,7 @@
 <br>
 
 
-### :red_circle: Como Utilizar
+## :red_circle: Como Utilizar
 
 ```bash
 # Clone este repositório
@@ -34,13 +34,13 @@ $ main "nome_arquivo.txt"
 $ ./main "nome_arquivo.txt"
 ```
 
-### :mag: Explicação dos Argumentos
+## :mag: Explicação dos Argumentos
 
 | Argumento          | Descrição                                                                               |
 | ------------------ | --------------------------------------------------------------------------------------- |
 | "nome_arquivo.txt" | É o arquivo .txt que você deseja verificar se a ortografia das palavras estão corretas. |
 
-### :camera_flash: Exemplo
+## :camera_flash: Exemplo
 ```bash
 #Executei passando os seguintes argumentos
 
@@ -66,12 +66,11 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
 | Incorreto | Eyte e um arxuiyo exkmpvo qte seva analizadu pelu corretur |
 | Correto   | Este e um arquivo exemplo que sera analisado pelo corretor |
 
-### :vertical_traffic_light: Regras Utilizadas
+## :vertical_traffic_light: Regras Utilizadas
 
   REGRAS AQUI
 
-### :mortar_board: Autores
----
+## :mortar_board: Autores
 
 <a href="https://github.com/jhonatancunha">
  <img style="border-radius: 50%;" src="https://avatars0.githubusercontent.com/u/52831621?s=460&u=2b0cfdafeb7756176ded82c41738e773e92762b8&v=4" width="100px;" alt=""/>
