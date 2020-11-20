@@ -55,7 +55,7 @@ $ ./main "testes/default.txt"
 Obtemos as seguintes informações como saida do algoritmo.<br />
 
 <p align="center">
-  <img src="img/exemplo_default.png" alt="Exemplo onde passo arquivo default.txt a fim de verificar erros de ortografia no mesmo" />
+  <img src="img/exemplo_default.PNG" alt="Exemplo onde passo arquivo default.txt a fim de verificar erros de ortografia no mesmo" />
 </p>
 <br />
 
