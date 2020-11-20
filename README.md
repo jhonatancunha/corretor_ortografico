@@ -1,4 +1,4 @@
-<h1 align="center">:rotating_light: Corretor ortográfico </h1>
+<h1 align="center">:closed_book: Corretor ortográfico </h1>
 <p align="center">
  Objetivo aqui...
  </p>
@@ -10,7 +10,7 @@
 <br>
 
 
-### :red_circle: Como utilizar
+### :red_circle: Como Utilizar
 
 ```bash
 # Clone este repositório
@@ -26,43 +26,58 @@ $ mingw32-make
 $ make
 
 # Por fim inicie o executavel
+
 #Windows
-$ 
+$ main "nome_arquivo.txt" 
+
 #Linux
-$ 
+$ ./main "nome_arquivo.txt"
 ```
 
 ### :mag: Explicação dos Argumentos
 
-| Argumento | Descrição |
-| --------- | --------- |
-| arg1      | descrição |
-| arg2      | descrição |
-| arg3      | descrição |
+| Argumento          | Descrição                                                                               |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| "nome_arquivo.txt" | É o arquivo .txt que você deseja verificar se a ortografia das palavras estão corretas. |
 
 ### :camera_flash: Exemplo
 ```bash
 #Executei passando os seguintes argumentos
+
 #Windows
-$ main 
+$ main "testes/default.txt"
+
 #Linux
-$ ./main 
+$ ./main "testes/default.txt"
 ```
 
-Análise do resultado aqui
 
 Obtemos as seguintes informações como saida do algoritmo.<br />
-<img src="img/exemplo.PNG" alt="">
 
+<p align="center">
+  <img src="img/exemplo_default.png" alt="Exemplo onde passo arquivo default.txt a fim de verificar erros de ortografia no mesmo" />
+</p>
+<br />
 
-### Autores
+### :bulb: Comparação do texto incorreto do arquivo e sua versão correta
+
+| STATUS    | TEXTO                                                      |
+| --------- | ---------------------------------------------------------- |
+| Incorreto | Eyte e um arxuiyo exkmpvo qte seva analizadu pelu corretur |
+| Correto   | Este e um arquivo exemplo que sera analisado pelo corretor |
+
+### :vertical_traffic_light: Regras Utilizadas
+
+  REGRAS AQUI
+
+### :mortar_board: Autores
 ---
 
 <a href="https://github.com/jhonatancunha">
  <img style="border-radius: 50%;" src="https://avatars0.githubusercontent.com/u/52831621?s=460&u=2b0cfdafeb7756176ded82c41738e773e92762b8&v=4" width="100px;" alt=""/>
 <br />
  <b>Jhonatan Cunha</b></a>
- <a href="https://github.com/jhonatancunha" title="Repositorio Jhonatan">🚀</a>
+ <a href="https://github.com/jhonatancunha" title="Repositorio Jhonatan"></a>
 
 [![Gmail Badge](https://img.shields.io/badge/-jhonatancunha@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jhonatancunha@alunos.utfpr.edu.br)](mailto:jhonatancunha@alunos.utfpr.edu.br)
 <br />
@@ -71,7 +86,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
  <img style="border-radius: 50%;" src="https://avatars0.githubusercontent.com/u/20424496?s=460&u=87f2870ff153ab88402d6246cb3347a46ae33fe9&v=4" width="100px;" alt=""/>
 <br />
  <b>Jessé Pires</b>
- </a> <a href="https://github.com/JessePires" title="Repositorio Jessé">🚀</a>
+ </a> <a href="https://github.com/JessePires" title="Repositorio Jessé"></a>
 
 [![Gmail Badge](https://img.shields.io/badge/-jessepires@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jessepires@alunos.utfpr.edu.br)](mailto:jessepires@alunos.utfpr.edu.br)
 
