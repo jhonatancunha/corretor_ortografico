@@ -8,22 +8,24 @@
 ASCIITrie* criarDicionario(char *dicionario){
   FILE *arq = fopen(dicionario, "r");
   if(arq == NULL) return NULL;
+  
   ASCIITrie *dict = NULL;
   char *string = calloc(LARGEST_WORD, sizeof(char));
-  char aux;
+  char c;
   int i = 0;
 
   do{
-    aux = fgetc(arq);
-    if(aux == '\n'){
+    c = fgetc(arq);
+    if(c == '\n'){
       AT_Inserir(&dict, string, 1);
-      free(string);
       i = 0;
+      
+      free(string);
       string = calloc(LARGEST_WORD, sizeof(char));
     }else{
-      string[i++] = tolower(aux);
+      string[i++] = tolower(c);
     }
-  }while(aux != EOF);
+  }while(c != EOF);
 
   free(string);
   fclose(arq);

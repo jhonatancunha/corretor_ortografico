@@ -6,6 +6,8 @@
 #include "../../trie/busca_aproximada/busca_aproximada.h"
 #include "../corretor.h"
 
+#define CORINGA '*'
+
 //REGRA 1
 //ALTERNANDO CORIGNGA EX = *ATS - R*ATS- RA*S - RAT*
 void regra1_alterna_coringa(ASCIITrie *dict, ASCIITrie **trie, char *texto, int n_extras);

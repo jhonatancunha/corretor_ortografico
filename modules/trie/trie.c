@@ -142,9 +142,8 @@ void AT_Imprimir(ASCIITrie *T){
 
 static void AT_Destruir_R(ASCIITrie *T){
   if(T == NULL) return;
-  int i;
 
-  for(i = 0; i < 26; i++){
+  for(int i = 0; i < 26; i++){
     if(T->filhos[i] != NULL){
       AT_Destruir_R(T->filhos[i]);
       T->filhos[i] = NULL;

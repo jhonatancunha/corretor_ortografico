@@ -3,19 +3,19 @@
 #include "regras.h"
 
 void regra1_alterna_coringa (ASCIITrie *dict, ASCIITrie **trie, char *texto, int n_extras) {
-  char *padrao = calloc(strlen(texto)+1, sizeof(char));
-  memcpy(padrao, texto, strlen(texto));
+  char *prefixo = calloc(strlen(texto)+1, sizeof(char));
+  memcpy(prefixo, texto, strlen(texto));
   
-  for(int i = 0; i < strlen(padrao); i++){
-    char antes = padrao[i];
-    padrao[i] = '*';
-    LISTA *l_coringa = TRIE_ChavesQueCasam(dict, padrao, n_extras);
-    padrao[i] = antes;
+  for(int i = 0; i < strlen(prefixo); i++){
+    char caracter = prefixo[i];
+    prefixo[i] = CORINGA;
+    LISTA *l_coringa = TRIE_ChavesQueCasam(dict, prefixo, n_extras);
+    prefixo[i] = caracter;
 
     Preenche_Trie_Sugestoes(trie, l_coringa);
     LISTA_Destruir(&l_coringa);
   }
-  free(padrao);
+  free(prefixo);
 }
 
 void regra2_prefixo_grande (ASCIITrie *dict, ASCIITrie **trie, char *texto) {
@@ -67,29 +67,29 @@ void regra4_coringa_no_prefixo_grande (ASCIITrie *dict, ASCIITrie **trie, char* 
 void regra5_alternando_dois_coringas(ASCIITrie *dict, ASCIITrie **trie, char* texto){
   if(strlen(texto) <= 4) return;
   
-  char *string = calloc(strlen(texto)+1, sizeof(char));
-  memcpy(string, texto, strlen(texto));
+  char *prefixo = calloc(strlen(texto)+1, sizeof(char));
+  memcpy(prefixo, texto, strlen(texto));
 
-  char aux1;
-  char aux2;
+  char c1;
+  char c2;
 
-  for(int i = 0; i < strlen(string); i++){
-    aux1 = string[i];
-    for(int j = i+1; j < strlen(string); j++){
-      aux2 = string[j];
+  for(int i = 0; i < strlen(prefixo); i++){
+    c1 = prefixo[i];
+    for(int j = i+1; j < strlen(prefixo); j++){
+      c2 = prefixo[j];
       
-      string[i] = '*';
-      string[j] = '*';
-      LISTA *l_coringa = TRIE_ChavesQueCasam(dict, string, 0);
+      prefixo[i] = CORINGA;
+      prefixo[j] = CORINGA;
+      LISTA *l_coringa = TRIE_ChavesQueCasam(dict, prefixo, 0);
 
-      string[i] = aux1;
-      string[j] = aux2;
+      prefixo[i] = c1;
+      prefixo[j] = c2;
 
       Preenche_Trie_Sugestoes(trie, l_coringa);
       LISTA_Destruir(&l_coringa);
     }
   }
-  free(string);
+  free(prefixo);
 }
 
 void regra6_anulando_letras (ASCIITrie *dict, ASCIITrie **trie, char* texto) {
@@ -97,14 +97,15 @@ void regra6_anulando_letras (ASCIITrie *dict, ASCIITrie **trie, char* texto) {
   int j = 0;
 
   for(int c = 0; c < strlen(texto); c++){
-    char *aux = calloc(strlen(texto), sizeof(char));
+    char *prefixo = calloc(strlen(texto), sizeof(char));
   
-    for(int i = 0; i < strlen(texto); i++) if(i != i_nulo) aux[j++] = texto[i];
+    for(int i = 0; i < strlen(texto); i++) 
+      if(i != i_nulo) prefixo[j++] = texto[i];
     
-    LISTA *l = TRIE_ChavesQueCasam(dict, aux, 0);
-    Preenche_Trie_Sugestoes(trie, l);
-    LISTA_Destruir(&l);
-    free(aux);
+    LISTA *lista = TRIE_ChavesQueCasam(dict, prefixo, 0);
+    Preenche_Trie_Sugestoes(trie, lista);
+    LISTA_Destruir(&lista);
+    free(prefixo);
 
     i_nulo++;
     j=0;

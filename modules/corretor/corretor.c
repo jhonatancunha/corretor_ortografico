@@ -13,19 +13,18 @@ static int compare (const void * a, const void * b ) {
 
 void verificaString (ASCIITrie *dict, char *string) {
   TAD_ANALISE *analise = TAD_CriarAnalise(string);
-  char aux;
   char *stringAux = calloc(LARGEST_WORD, sizeof(char));
-  int i = 0, j;
 
   for(int j = 0; j <= strlen(string); j++){
+    int i = 0;
+    
     if(!isspace(string[j]) && !ispunct(string[j]) && string[j] != 0){
       stringAux[i++] = tolower(string[j]);
     }else{
       if(i > 0) CorrigirOrtografia(dict, stringAux, analise);
-      
+
       free(stringAux);
       stringAux = calloc(LARGEST_WORD, sizeof(char));
-      i = 0;
     }
   }
   free(stringAux);
@@ -35,24 +34,23 @@ TAD_ANALISE* verificaArquivo (ASCIITrie *dict, char *arquivo) {
   FILE *arq = fopen(arquivo, "r");
   if(arq == NULL) return NULL;
 
-  TAD_ANALISE *analise = TAD_CriarAnalise(arquivo);
-  char aux;
+  char c;
   char *string;
-  int i;
+  TAD_ANALISE *analise = TAD_CriarAnalise(arquivo);
 
   do{
     string = calloc(LARGEST_WORD, sizeof(char));
-    i = 0;
+    int i = 0;
     while(1){
-      aux = fgetc(arq);
-      if(isspace(aux) || ispunct(aux) || isdigit(aux) || aux == EOF) break;
-      string[i++] = tolower(aux);
+      c = fgetc(arq);
+      if(isspace(c) || ispunct(c) || isdigit(c) || c == EOF) break;
+      string[i++] = tolower(c);
     };
 
     if(i > 0) CorrigirOrtografia(dict, string, analise);
     
     free(string);
-  }while(aux != EOF);
+  }while(c != EOF);
 
   fclose(arq);
   return analise;
@@ -71,24 +69,25 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto, TAD_ANALISE *analise
   if(aux == NULL){
     ASCIITrie *trie = NULL;
 
-    printf("palavra nao esta no dicionario: %s\n", texto);
-    printf("sugestoes:\n");
+    printf("Palavra inexistente em dicionario fornecido: %s\n", texto);
+    printf("Sugestoes:\n");
 
-    //REGRA 1
+    // REGRA 1
     regra1_alterna_coringa(dicionario, &trie, texto, 0);
   
-    //REGRA 2
+    // REGRA 2
     regra2_prefixo_grande(dicionario, &trie, texto);
 
-    //REGRA 3
+    // REGRA 3
     regra3_maior_chave_de_prefixo(dicionario, &trie, texto);
 
-    //REGRA 4
+    // REGRA 4
     regra4_coringa_no_prefixo_grande(dicionario, &trie, texto);
 
-    //REGRA 5
+    // REGRA 5
     regra5_alternando_dois_coringas(dicionario, &trie, texto);
 
+    // REGRA 6
     regra6_anulando_letras(dicionario, &trie, texto);
 
     LISTA *total = TRIE_ChavesComPrefixo(trie, "");
