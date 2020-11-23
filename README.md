@@ -179,28 +179,24 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
 
 
 ## :mortar_board: Autores
-<div style="display: flex; align-items: center;">
-<div style="margin-right: 30px">
-<a href="https://github.com/jhonatancunha">
+
+<table><tr>
+<td><a href="https://github.com/jhonatancunha">
  <img style="border-radius: 50%;" src="https://avatars0.githubusercontent.com/u/52831621?s=460&u=2b0cfdafeb7756176ded82c41738e773e92762b8&v=4" width="100px;" alt=""/>
 <br />
  <b>Jhonatan Cunha</b></a>
  <a href="https://github.com/jhonatancunha" title="Repositorio Jhonatan"></a>
 
-[![Gmail Badge](https://img.shields.io/badge/-jhonatancunha@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jhonatancunha@alunos.utfpr.edu.br)](mailto:jhonatancunha@alunos.utfpr.edu.br)
-<br />
-</div>
+[![Gmail Badge](https://img.shields.io/badge/-jhonatancunha@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jhonatancunha@alunos.utfpr.edu.br)](mailto:jhonatancunha@alunos.utfpr.edu.br)</td>
 
-<div>
-<a href="https://github.com/JessePires">
+<td><a href="https://github.com/JessePires">
  <img style="border-radius: 50%;" src="https://avatars0.githubusercontent.com/u/20424496?s=460&u=87f2870ff153ab88402d6246cb3347a46ae33fe9&v=4" width="100px;" alt=""/>
 <br />
  <b>Jessé Pires</b>
  </a> <a href="https://github.com/JessePires" title="Repositorio Jessé"></a>
 
-[![Gmail Badge](https://img.shields.io/badge/-jessepires@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jessepires@alunos.utfpr.edu.br)](mailto:jessepires@alunos.utfpr.edu.br)
-</div>
-</div>
+[![Gmail Badge](https://img.shields.io/badge/-jessepires@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jessepires@alunos.utfpr.edu.br)](mailto:jessepires@alunos.utfpr.edu.br)</td>
+</tr></table>
 
 ## :memo: Licença
 [MIT](https://choosealicense.com/licenses/mit/)
