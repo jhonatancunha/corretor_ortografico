@@ -1,6 +1,6 @@
-<h1 align="center">:closed_book: Corretor ortográfico </h1>
+<h1 align="center">:closed_book: Corretor    Ortográfico </h1>
 <p align="center">
- Objetivo aqui...
+   Objetivo aqui...
  </p>
 <p align="center">
 <img src="https://img.shields.io/github/repo-size/jhonatancunha/corretor_ortografico" alt="">
@@ -96,6 +96,47 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   | ----------------- | --------------- |
   | salad             | salada, saladas |
   | sala              | sala, salada    |
+  <br /> 
+
+  ### Regra 3
+
+  <br />
+  Esta regra retorna o maior prefixo válido de uma palavra procurada. A fim de exemplo, ao pesquisar a palavra "zebraolho", receberemos a a chave "zebra" como retorno.
+  <br /><br />
+
+  :mag_right: Palavra: *zebraolho*
+
+  | Prefixo Procurado | Resultado |
+  | ----------------- | --------- |
+  | zebraolho         | zebra     |
+  <br />  
+
+  
+  ### Regra 4
+
+  <br />
+  Essa regra é formulada via conjunção da regra 2 com a regra 1, ou seja, aplicaremos a regra 2 na palavra alvo e logo após a regra 1. A fim de exemplo, ao pesquisar a palavra 
+  <br /><br />
+
+  :mag_right: Palavra: *xinamiyb*
+
+  | Prefixo Procurado | Resultado |
+  | ----------------- | --------- |
+  | <b>dinamiy</b>         | <b>CASO N-2</b>     |
+  | *inamiy         | NULL     |
+  | x*namiy         | NULL     |
+  | xi*amiy         | NULL     |
+  | xin*miy         | NULL     |
+  | xina*iy         | NULL     |
+  | xinami*         | NULL     |
+  | <b>dinami</b>       | <b>CASO N-3</b>     |
+  | *inami         | dinamica, dinamico, dinamita, dinamite, dinamito, dinamiza, dinamize, dinamizo     |
+  | x*nami         | NULL     |
+  | xi*ami         | NULL     |
+  | xin*mi         | NULL     |
+  | xina*i         | NULL     |
+  | xinam*        | NULL     |
+
   <br />  
 
 

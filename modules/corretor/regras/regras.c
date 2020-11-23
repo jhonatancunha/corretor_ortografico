@@ -10,9 +10,9 @@ void regra1_alterna_coringa (ASCIITrie *dict, ASCIITrie **trie, char *texto, int
     char caracter = prefixo[i];
     prefixo[i] = CORINGA;
     LISTA *l_coringa = TRIE_ChavesQueCasam(dict, prefixo, n_extras);
-    prefixo[i] = caracter;
 
     Preenche_Trie_Sugestoes(trie, l_coringa);
+    prefixo[i] = caracter;
     LISTA_Destruir(&l_coringa);
   }
   free(prefixo);
