@@ -78,9 +78,6 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto, TAD_ANALISE *analise
     // REGRA 1
     regra1_alterna_coringa(dicionario, &trie, texto, 0);
 
-    LISTA *regra1 = TRIE_ChavesComPrefixo(trie, "");
-    qsort(regra1->vetor, regra1->quantidade_atual, sizeof(char*), compare);
-
     // REGRA 2
     regra2_prefixo_grande(dicionario, &trie, texto);
   

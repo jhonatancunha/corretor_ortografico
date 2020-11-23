@@ -68,7 +68,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
 
 ## :vertical_traffic_light: Regras Utilizadas
 
-  ### Regra :one:
+  ### Regra 1
 
   <br />
   Nesta palavra utilizaremos a técnica de alternar coringas com objetivo de encontrar qual a letra incorreta em nossa palavra. Coringas serão representador pelo caracter <i>'*'</i>, e na posição referente a ele, podemos usar qualquer letra do alfabeto até encontrar a correta.
@@ -82,6 +82,20 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   | h*ye              | NULL      |
   | ho*e              | hoje      |
   | hoy*              | NULL      |
+  <br />  
+
+  ### Regra 2
+
+  <br />
+  Utilizaremos esta regra em palavras com mais de 5 letras, onde iremos pesquisar uma palavra <i>p</i> que vá até a posição n-3 e n-2. 
+  <br /><br />
+
+  :mag_right: Palavra: *saladq*
+
+  | Prefixo Procurado | Resultado       |
+  | ----------------- | --------------- |
+  | salad             | salada, saladas |
+  | sala              | sala, salada    |
   <br />  
 
 
