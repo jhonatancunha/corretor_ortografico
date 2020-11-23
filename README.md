@@ -68,7 +68,22 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
 
 ## :vertical_traffic_light: Regras Utilizadas
 
-  REGRAS AQUI
+  ### Regra :one:
+
+  <br />
+  Nesta palavra utilizaremos a técnica de alternar coringas com objetivo de encontrar qual a letra incorreta em nossa palavra. Coringas serão representador pelo caracter <i>'*'</i>, e na posição referente a ele, podemos usar qualquer letra do alfabeto até encontrar a correta.
+  <br /><br />
+
+  :mag_right: Palavra: *hoye*
+
+  | Prefixo Procurado | Resultado |
+  | ----------------- | --------- |
+  | *oye              | NULL      |
+  | h*ye              | NULL      |
+  | ho*e              | hoje      |
+  | hoy*              | NULL      |
+  <br />  
+
 
 ## :mortar_board: Autores
 

@@ -10,9 +10,13 @@ int main(int argc, char** argv){
   tempo = clock();
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
 
-  TAD_ANALISE *analise;
-  if(argc != 2) analise = verificaArquivo(dict, "testes/default.txt");
-  else analise = verificaArquivo(dict, argv[1]);
+  char teste[] = "hoye";
+
+  // if(argc != 2) analise = verificaArquivo(dict, "testes/default.txt");
+  // else analise = verificaArquivo(dict, argv[1]);
+
+  TAD_ANALISE *analise = verificaString(dict, teste);
+
 
   TAD_ImprimirAnalise(analise);
 

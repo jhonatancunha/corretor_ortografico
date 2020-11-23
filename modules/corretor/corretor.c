@@ -11,23 +11,26 @@ static int compare (const void * a, const void * b ) {
   return strlen(aux_b) - strlen(aux_a);
 }
 
-void verificaString (ASCIITrie *dict, char *string) {
+TAD_ANALISE* verificaString (ASCIITrie *dict, char *string) {
   TAD_ANALISE *analise = TAD_CriarAnalise(string);
   char *stringAux = calloc(LARGEST_WORD, sizeof(char));
+    int i = 0;
 
   for(int j = 0; j <= strlen(string); j++){
-    int i = 0;
     
     if(!isspace(string[j]) && !ispunct(string[j]) && string[j] != 0){
       stringAux[i++] = tolower(string[j]);
     }else{
-      if(i > 0) CorrigirOrtografia(dict, stringAux, analise);
+      if(strlen(stringAux) > 0) CorrigirOrtografia(dict, stringAux, analise);
 
       free(stringAux);
       stringAux = calloc(LARGEST_WORD, sizeof(char));
+      i = 0;
     }
   }
   free(stringAux);
+
+  return analise;
 }
 
 TAD_ANALISE* verificaArquivo (ASCIITrie *dict, char *arquivo) {
@@ -74,9 +77,13 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto, TAD_ANALISE *analise
 
     // REGRA 1
     regra1_alterna_coringa(dicionario, &trie, texto, 0);
-  
+
+    LISTA *regra1 = TRIE_ChavesComPrefixo(trie, "");
+    qsort(regra1->vetor, regra1->quantidade_atual, sizeof(char*), compare);
+
     // REGRA 2
     regra2_prefixo_grande(dicionario, &trie, texto);
+  
 
     // REGRA 3
     regra3_maior_chave_de_prefixo(dicionario, &trie, texto);
