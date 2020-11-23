@@ -26,7 +26,6 @@ $ mingw32-make
 $ make
 
 # Por fim inicie o executavel
-
 #Windows
 $ main "nome_arquivo.txt" 
 
@@ -43,7 +42,6 @@ $ ./main "nome_arquivo.txt"
 ## :camera_flash: Exemplo
 ```bash
 #Executei passando os seguintes argumentos
-
 #Windows
 $ main "testes/default.txt"
 
@@ -71,7 +69,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   ### Regra 1
 
   <br />
-  Nesta palavra utilizaremos a técnica de alternar coringas com objetivo de encontrar qual a letra incorreta em nossa palavra. Coringas serão representador pelo caracter <i>'*'</i>, e na posição referente a ele, podemos usar qualquer letra do alfabeto até encontrar a correta.
+  Nesta palavra utilizaremos a técnica de alternar coringas com objetivo de encontrar qual a letra incorreta em nossa palavra. Coringas serão representados pelo caracter <i>'*'</i>, e na posição referente a ele, podemos usar qualquer letra do alfabeto até encontrar a correta.
   <br /><br />
 
   :mag_right: Palavra: *hoye*
@@ -87,7 +85,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   ### Regra 2
 
   <br />
-  Utilizaremos esta regra em palavras com mais de 5 letras, onde iremos pesquisar uma palavra <i>p</i> que vá até a posição n-3 e n-2. 
+  Utilizaremos esta regra em palavras com mais de 5 letras, onde iremos pesquisar uma palavra <i>p</i> que vá até a posição n-3 e n-2. Tal regra nos retorna chaves que casam com o prefixo procurado.
   <br /><br />
 
   :mag_right: Palavra: *saladq*
@@ -101,7 +99,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   ### Regra 3
 
   <br />
-  Esta regra retorna o maior prefixo válido de uma palavra procurada. A fim de exemplo, ao pesquisar a palavra "zebraolho", receberemos a a chave "zebra" como retorno.
+  Esta regra retorna o maior prefixo válido de uma palavra procurada. A fim de exemplo, ao pesquisar a palavra "zebraolho", receberemos a chave "zebra" como retorno.
   <br /><br />
 
   :mag_right: Palavra: *zebraolho*
@@ -115,29 +113,71 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   ### Regra 4
 
   <br />
-  Essa regra é formulada via conjunção da regra 2 com a regra 1, ou seja, aplicaremos a regra 2 na palavra alvo e logo após a regra 1. A fim de exemplo, ao pesquisar a palavra 
+  Essa regra é formulada via conjunção da regra 2 com a regra 1, ou seja, aplicaremos a regra 2 na palavra alvo e logo após a regra 1. 
   <br /><br />
 
   :mag_right: Palavra: *xinamiyb*
 
+  | Prefixo Procurado | Resultado                                                                      |
+  | ----------------- | ------------------------------------------------------------------------------ |
+  | <b>dinamiy</b>    | <b>CASO N-2</b>                                                                |
+  | *inamiy           | NULL                                                                           |
+  | x*namiy           | NULL                                                                           |
+  | xi*amiy           | NULL                                                                           |
+  | xin*miy           | NULL                                                                           |
+  | xina*iy           | NULL                                                                           |
+  | xinami*           | NULL                                                                           |
+  | <b>dinami</b>     | <b>CASO N-3</b>                                                                |
+  | *inami            | dinamica, dinamico, dinamita, dinamite, dinamito, dinamiza, dinamize, dinamizo |
+  | x*nami            | NULL                                                                           |
+  | xi*ami            | NULL                                                                           |
+  | xin*mi            | NULL                                                                           |
+  | xina*i            | NULL                                                                           |
+  | xinam*            | NULL                                                                           |
+  <br />  
+
+   ### Regra 5
+
+  <br />
+  Essa regra é baseada na regra 1, porém, agora iremos utilizar dois coringas. Onde um ficará fixado em uma posição, enquanto o outro irá percorrer a palavra.
+  <br /><br />
+
+  :mag_right: Palavra: *xinxmite*
+
   | Prefixo Procurado | Resultado |
   | ----------------- | --------- |
-  | <b>dinamiy</b>         | <b>CASO N-2</b>     |
-  | *inamiy         | NULL     |
-  | x*namiy         | NULL     |
-  | xi*amiy         | NULL     |
-  | xin*miy         | NULL     |
-  | xina*iy         | NULL     |
-  | xinami*         | NULL     |
-  | <b>dinami</b>       | <b>CASO N-3</b>     |
-  | *inami         | dinamica, dinamico, dinamita, dinamite, dinamito, dinamiza, dinamize, dinamizo     |
-  | x*nami         | NULL     |
-  | xi*ami         | NULL     |
-  | xin*mi         | NULL     |
-  | xina*i         | NULL     |
-  | xinam*        | NULL     |
+  | **nxmite          | NULL      |
+  | \*i\*xmite        | NULL      |
+  | \*in\*mite        | dinamite  |
+  | \*inx\*ite        | NULL      |
+  | etc...            | NULL      |
 
-  <br />  
+  <br /> 
+
+  ### Regra 6
+
+  <br />
+  Essa regra foi pensada para encontrar palavras que contém letras repetidas ou inexistentes, a mesma intercala pelos caracteres da palavras anulando-os. A fim de exemplificar, ao procurara a palavra "caasa", irá tentar encontrar as chaves: aasa, casa, casa, caaa, caas.
+  <br /><br />
+
+  :mag_right: Palavra: *commentario*
+
+  | Prefixo Procurado | Resultado  |
+  | ----------------- | ---------- |
+  | ommentario        | NULL       |
+  | cmmentario        | NULL       |
+  | comentario        | comentario |
+  | comentario        | comentario |
+  | commntario        | NULL       |
+  | commetario        | NULL       |
+  | commenario        | NULL       |
+  | commentrio        | NULL       |
+  | commentaio        | NULL       |
+  | commentaro        | NULL       |
+  | commentari        | NULL       |
+  
+
+  <br /> 
 
 
 ## :mortar_board: Autores

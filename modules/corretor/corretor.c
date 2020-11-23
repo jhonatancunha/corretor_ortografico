@@ -81,7 +81,6 @@ void CorrigirOrtografia(ASCIITrie* dicionario, char* texto, TAD_ANALISE *analise
     // REGRA 2
     regra2_prefixo_grande(dicionario, &trie, texto);
   
-
     // REGRA 3
     regra3_maior_chave_de_prefixo(dicionario, &trie, texto);
 

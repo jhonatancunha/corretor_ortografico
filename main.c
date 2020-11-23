@@ -10,7 +10,7 @@ int main(int argc, char** argv){
   tempo = clock();
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
 
-  char teste[] = "xinamiyb";
+  char teste[] = "commentario";
 
   // if(argc != 2) analise = verificaArquivo(dict, "testes/default.txt");
   // else analise = verificaArquivo(dict, argv[1]);
