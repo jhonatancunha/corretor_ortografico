@@ -3,9 +3,9 @@
    Com objetivo de corrigir palavras escritas de maneira incorreta em um arquivo de texto, utilizamos uma árvore de prefixos a fim de armazenar um dicionario, onde desfrutamos do mesmo para verificar a ortografia de cada palavra presente no arquivo em questão.
  </p>
 <p align="center">
-<img src="https://img.shields.io/github/repo-size/jhonatancunha/corretor_ortografico" alt="">
-<img src="https://img.shields.io/github/license/jhonatancunha/corretor_ortografico" alt="">
-<img src="https://img.shields.io/github/last-commit/jhonatancunha/corretor_ortografico" alt="">
+<img src="https://img.shields.io/github/repo-size/jhonatancunha/corretor_ortografico?style=for-the-badge" alt="">
+<img src="https://img.shields.io/github/license/jhonatancunha/corretor_ortografico?style=for-the-badge" alt="">
+<img src="https://img.shields.io/github/last-commit/jhonatancunha/corretor_ortografico?style=for-the-badge" alt="">
 </p>
 <br>
 
