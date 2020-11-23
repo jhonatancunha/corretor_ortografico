@@ -1,4 +1,4 @@
-<h1 align="center">:closed_book: Corretor    Ortográfico </h1>
+<h1 align="center">:closed_book: <b>Corretor Ortográfico</b> </h1>
 <p align="center">
    Com objetivo de corrigir palavras escritas de maneira incorreta em um arquivo de texto, utilizamos uma árvore de prefixos a fim de armazenar um dicionario, onde desfrutamos do mesmo para verificar a ortografia de cada palavra presente no arquivo em questão.
  </p>
@@ -85,7 +85,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   ### Regra 2
 
   <br />
-  Utilizaremos esta regra em palavras com mais de 5 letras, onde iremos pesquisar uma palavra <i>p</i> que vá até a posição n-3 e n-2. Tal regra nos retorna chaves que casam com o prefixo procurado.
+  Utilizaremos esta regra em palavras com mais de 5 letras, onde iremos pesquisar uma palavra <b><i>p</i></b> que vá até a posição n-3 e n-2. Tal regra nos retorna chaves que casam com o prefixo procurado.
   <br /><br />
 
   :mag_right: Palavra: *saladq*
@@ -113,7 +113,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   ### Regra 4
 
   <br />
-  Essa regra é formulada via conjunção da regra 2 com a regra 1, ou seja, aplicaremos a regra 2 na palavra alvo e logo após a regra 1. 
+  Essa regra é formulada via conjunção da regra 1 com a regra 2, ou seja, aplicaremos a regra 2 na palavra alvo e logo após a regra 1. 
   <br /><br />
 
   :mag_right: Palavra: *xinamiyb*
@@ -157,7 +157,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   ### Regra 6
 
   <br />
-  Essa regra foi pensada para encontrar palavras que contém letras repetidas ou inexistentes, a mesma intercala pelos caracteres da palavras anulando-os. A fim de exemplificar, ao procurara a palavra "caasa", irá tentar encontrar as chaves: aasa, casa, casa, caaa, caas.
+  Essa regra foi pensada para encontrar palavras que contém letras repetidas ou inexistentes, a mesma intercala pelos caracteres da palavras anulando-os. A fim de exemplificar, ao procurarmos a palavra "caasa", o código tenta encontrar as chaves: aasa, casa, casa, caaa, caas.
   <br /><br />
 
   :mag_right: Palavra: *commentario*
@@ -175,13 +175,12 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   | commentaio        | NULL       |
   | commentaro        | NULL       |
   | commentari        | NULL       |
-  
-
   <br /> 
 
 
 ## :mortar_board: Autores
-
+<div style="display: flex; align-items: center;">
+<div style="margin-right: 30px">
 <a href="https://github.com/jhonatancunha">
  <img style="border-radius: 50%;" src="https://avatars0.githubusercontent.com/u/52831621?s=460&u=2b0cfdafeb7756176ded82c41738e773e92762b8&v=4" width="100px;" alt=""/>
 <br />
@@ -190,7 +189,9 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
 
 [![Gmail Badge](https://img.shields.io/badge/-jhonatancunha@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jhonatancunha@alunos.utfpr.edu.br)](mailto:jhonatancunha@alunos.utfpr.edu.br)
 <br />
+</div>
 
+<div>
 <a href="https://github.com/JessePires">
  <img style="border-radius: 50%;" src="https://avatars0.githubusercontent.com/u/20424496?s=460&u=87f2870ff153ab88402d6246cb3347a46ae33fe9&v=4" width="100px;" alt=""/>
 <br />
@@ -198,6 +199,8 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
  </a> <a href="https://github.com/JessePires" title="Repositorio Jessé"></a>
 
 [![Gmail Badge](https://img.shields.io/badge/-jessepires@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jessepires@alunos.utfpr.edu.br)](mailto:jessepires@alunos.utfpr.edu.br)
+</div>
+</div>
 
 ## :memo: Licença
 [MIT](https://choosealicense.com/licenses/mit/)
