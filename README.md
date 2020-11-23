@@ -1,6 +1,6 @@
 <h1 align="center">:closed_book: Corretor    Ortográfico </h1>
 <p align="center">
-   Objetivo aqui...
+   Com objetivo de corrigir palavras escritas de maneira incorreta em um arquivo de texto, utilizamos uma árvore de prefixos a fim de armazenar um dicionario, onde desfrutamos do mesmo para verificar a ortografia de cada palavra presente no arquivo em questão.
  </p>
 <p align="center">
 <img src="https://img.shields.io/github/repo-size/jhonatancunha/corretor_ortografico" alt="">
