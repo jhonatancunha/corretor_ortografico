@@ -2,7 +2,7 @@
 
 #include "../trie.h"
 #include "../../lista/lista.h"
-#include "../../pilha/pilha.h"
+
 
 LISTA* TRIE_ChavesComPrefixo (ASCIITrie* T, char* prefix);
 

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+
 #include "modules/dicionario/dict.h"
 #include "modules/trie/trie.h"
 #include "modules/corretor/corretor.h"
@@ -10,13 +11,10 @@ int main(int argc, char** argv){
   tempo = clock();
   ASCIITrie *dict = criarDicionario("modules/dicionario/dicionario.txt");
 
-  char teste[] = "commentario";
+  TAD_ANALISE *analise;
 
-  // if(argc != 2) analise = verificaArquivo(dict, "testes/default.txt");
-  // else analise = verificaArquivo(dict, argv[1]);
-
-  TAD_ANALISE *analise = verificaString(dict, teste);
-
+  if(argc != 2) analise = verificaArquivo(dict, "testes/default.txt");
+  else analise = verificaArquivo(dict, argv[1]);
 
   TAD_ImprimirAnalise(analise);
 

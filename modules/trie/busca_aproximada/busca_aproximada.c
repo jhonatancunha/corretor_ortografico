@@ -1,6 +1,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+
+#include "../../pilha/pilha.h"
 #include "busca_aproximada.h"
 
 #define TAMANHO_ALFABETO 26

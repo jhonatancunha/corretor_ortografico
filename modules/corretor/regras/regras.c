@@ -1,6 +1,12 @@
 #include <stdlib.h>
 #include <string.h>
+
 #include "regras.h"
+#include "../../pilha/pilha.h"
+#include "../../trie/busca_aproximada/busca_aproximada.h"
+#include "../corretor.h"
+#include "../../dicionario/dict.h"
+
 
 void regra1_alterna_coringa (ASCIITrie *dict, ASCIITrie **trie, char *texto, int n_extras) {
   char *prefixo = calloc(strlen(texto)+1, sizeof(char));

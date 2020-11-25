@@ -2,7 +2,7 @@
 
 #include "../trie/trie.h"
 #include "../lista/lista.h"
-#include "regras/regras.h"
+
 
 typedef struct TAD_ANALISE{
   int totalPalavras;
