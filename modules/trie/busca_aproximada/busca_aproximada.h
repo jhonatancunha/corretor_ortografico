@@ -7,8 +7,8 @@
 
 /*FUNÇÃO QUE BUSCA CHAVES QUE CONTENHAM DETERMINADO PREFIXO
 *============ARGUMENTOS============
-*T = arvore trie onde iremos buscar as chaves
-*prefix = prefix a ser procurado
+*T = arvore trie onde iremos buscar as chaves (o dicionario)
+*prefix = prefixo a ser procurado
 *============RETORNO============
 *return: LISTA que contém todas as chaves encontradas
 */
@@ -24,12 +24,11 @@ LISTA* TRIE_ChavesComPrefixo (ASCIITrie* T, char* prefix);
 */
 LISTA* TRIE_ChavesQueCasam (ASCIITrie *dicionario, char* padrao, int n_extras);
 
-/*FUNÇÃO QUE BUSCA CHAVE QUE CONTÉM MAIOR QUANTIDADE DE CARACTERES
-DE UM PREFIXO
+/*FUNÇÃO QUE BUSCA CHAVE QUE CONTÉM MAIOR QUANTIDADE DE CARACTERES DE UMA PALAVRA
 *============ARGUMENTOS============
-*T = arvore trie onde iremos buscar as chaves
-*prefix = prefix a ser procurado
+*T = arvore trie onde iremos buscar as chaves (dicionário)
+*s = palavra da qual se buscará o maior prefixo 
 *============RETORNO============
-*return: string que contém o prefixo desejado
+*return: string com o maior prefixo da palavra que é uma chave no dicionário
 */
 char* TRIE_ChaveMaiorPrefixoDe (ASCIITrie* T, char* s);
