@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
+#include "regras/regras.h"
+#include "../dicionario/dict.h"
 #include "corretor.h"
+#include "../trie/busca_aproximada/busca_aproximada.h"
 
 static int compare (const void * a, const void * b ) {
   const char *aux_a = *(char**)a;

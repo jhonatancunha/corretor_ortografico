@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
 #include "trie.h"
 
 ASCIITrie *AT_Buscar_Iterativo(ASCIITrie *T, unsigned char *chave){

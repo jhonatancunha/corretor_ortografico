@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
+#include "../lista/lista.h"
 #include "dict.h"
 
 ASCIITrie* criarDicionario(char *dicionario){

@@ -1,10 +1,5 @@
 #pragma once
-
-#include "../../dicionario/dict.h"
 #include "../../trie/trie.h"
-#include "../../pilha/pilha.h"
-#include "../../trie/busca_aproximada/busca_aproximada.h"
-#include "../corretor.h"
 
 #define CORINGA '*'
 
