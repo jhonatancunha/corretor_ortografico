@@ -5,8 +5,6 @@
 #include "../../pilha/pilha.h"
 #include "busca_aproximada.h"
 
-#define TAMANHO_ALFABETO 26
-
 static ASCIITrie* TRIE_ObterPrefixo (ASCIITrie* T, unsigned char* prefixo, int tamanho, int p) {
   if(T == NULL) return NULL; 
   if(p == tamanho) return T;

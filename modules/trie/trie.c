@@ -157,4 +157,3 @@ static void AT_Destruir_R(ASCIITrie *T){
 void AT_Destruir(ASCIITrie *T){
   AT_Destruir_R(T);
 }
-

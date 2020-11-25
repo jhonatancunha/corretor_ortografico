@@ -3,6 +3,7 @@
 #include "../trie.h"
 #include "../../lista/lista.h"
 
+#define TAMANHO_ALFABETO 26
 
 LISTA* TRIE_ChavesComPrefixo (ASCIITrie* T, char* prefix);
 
