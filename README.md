@@ -195,7 +195,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
  <b>Jessé Pires</b>
  </a> <a href="https://github.com/JessePires" title="Repositorio Jessé"></a>
 
-[![Gmail Badge](https://img.shields.io/badge/-jessepires@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jessepires@alunos.utfpr.edu.br)](mailto:jesserocha@alunos.utfpr.edu.br)</td>
+[![Gmail Badge](https://img.shields.io/badge/-jesserocha@alunos.utfpr.edu.br-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jesserocha@alunos.utfpr.edu.br)](mailto:jesserocha@alunos.utfpr.edu.br)</td>
 </tr></table>
 
 ## :memo: Licença
