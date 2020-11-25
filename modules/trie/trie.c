@@ -40,6 +40,19 @@ static void AT_Remover_Recursivo(ASCIITrie **T, unsigned char *chave, int tam, i
   }
 }
 
+static void AT_Destruir_R(ASCIITrie *T){
+  if(T == NULL) return;
+
+  for(int i = 0; i < 26; i++){
+    if(T->filhos[i] != NULL){
+      AT_Destruir_R(T->filhos[i]);
+      T->filhos[i] = NULL;
+    }
+  }
+
+  free(T);
+}
+
 ASCIITrie *AT_Buscar(ASCIITrie *T, unsigned char *chave){
   return ASCIITrie_Buscar_Recursiva(T, chave, strlen(chave), 0);
 }
