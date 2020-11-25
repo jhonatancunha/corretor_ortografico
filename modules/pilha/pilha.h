@@ -3,7 +3,7 @@
 typedef struct Pilha {
   char* vetor;
   int tamanho;
-  int prox;
+  int topo;
 } Pilha;
 
 

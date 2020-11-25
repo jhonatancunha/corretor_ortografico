@@ -6,7 +6,7 @@ Pilha* Pilha_Criar () {
   Pilha* nova = malloc(sizeof(Pilha));
   nova->tamanho = 10;
   nova->vetor = calloc(nova->tamanho+1, sizeof(char));
-  nova->prox = 0;
+  nova->topo = 0;
 
   return nova;
 }
@@ -25,10 +25,10 @@ static void Pilha_Redimensionar (Pilha* pilha) {
 }
 
 void Pilha_Inserir (Pilha* pilha, char c) {
-  if (pilha->prox == pilha->tamanho) 
+  if (pilha->topo == pilha->tamanho) 
     Pilha_Redimensionar(pilha);
   
-  pilha->vetor[pilha->prox++] = c;
+  pilha->vetor[pilha->topo++] = c;
 }
 
 void Pilha_Imprimir (Pilha* pilha) {
@@ -36,7 +36,7 @@ void Pilha_Imprimir (Pilha* pilha) {
 }
 
 void Pilha_Remover (Pilha* pilha) {
-  pilha->vetor[pilha->prox--];
+  pilha->vetor[pilha->topo--];
 }
 
 void Pilha_Destruir (Pilha** pilha) {
