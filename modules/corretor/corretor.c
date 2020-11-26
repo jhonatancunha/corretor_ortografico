@@ -79,6 +79,7 @@ void TAD_ImprimirAnalise(TAD_ANALISE *tad){
     return;
   }
   
+  
   printf("Arquivo aberto -> %s\n", tad->arq);
   printf("Total de palavras -> %d palavras\n", tad->totalPalavras);
   printf("Palavras incorretas -> %d palavras\n", tad->qtdIncorretas);

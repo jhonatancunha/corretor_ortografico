@@ -88,6 +88,7 @@ LISTA* TRIE_ChavesQueCasam(ASCIITrie *dicionario, char* padrao, int n_extras){
   memcpy(string, padrao, strlen(padrao));
   LISTA *l = LISTA_Criar();
   Pilha *p = Pilha_Criar();
+  
   ObterChavesQueCasam(l, dicionario, p, string, 0);
 
   free(string);

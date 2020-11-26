@@ -51,7 +51,7 @@ char* LISTA_MaiorPalavra (LISTA* l) {
 
 void LISTA_Imprimir (LISTA* l) {
   if (LISTA_isVazia(l)) {
-    printf("Nenhuma sugestao encontrada!\n");
+    printf("Nenhuma sugestao encontrada!\n\n");
     return;
   }
 
