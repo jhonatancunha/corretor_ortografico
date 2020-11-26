@@ -12,7 +12,7 @@ static int compare (const void * a, const void * b ) {
   const char *aux_a = *(char**)a;
   const char *aux_b = *(char**)b;
   
-  return strlen(aux_b) - strlen(aux_a);
+  return strlen(aux_a) - strlen(aux_b);
 }
 
 void CorrigirOrtografia(ASCIITrie* dicionario, char* texto, TAD_ANALISE *analise){
