@@ -19,7 +19,7 @@ static void TRIE_EncontrarChavesComPrefixo (ASCIITrie* dicionario, LISTA* lista_
 
   if (dicionario->estado == TRIE_OCUPADO) {
     char* palavra_encontrada = calloc(strlen(pilha_auxiliar->vetor)+2, sizeof(char));
-    memcpy(palavra_encontrada, pilha_auxiliar->vetor, pilha_auxiliar->prox);
+    memcpy(palavra_encontrada, pilha_auxiliar->vetor, pilha_auxiliar->topo);
     LISTA_Inserir(lista_palavras, palavra_encontrada);
   }
 
@@ -59,7 +59,7 @@ static void ObterChavesQueCasam(LISTA *l, ASCIITrie *dict, Pilha *pilha, char *s
   if(p == strlen(s)){
     if(dict->estado == TRIE_OCUPADO){
       char *aux = calloc(strlen(pilha->vetor)+1, sizeof(char));
-      memcpy(aux, pilha->vetor, pilha->prox);
+      memcpy(aux, pilha->vetor, pilha->topo);
       LISTA_Inserir(l, aux);
     }
     Pilha_Remover(pilha);
