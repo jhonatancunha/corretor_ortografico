@@ -1,4 +1,4 @@
-<h1 align="center">:closed_book: <b>Corretor Ortográfico</b> </h1>
+﻿<h1 align="center">:closed_book: <b>Corretor Ortográfico</b> </h1>
 <p align="center">
    Com objetivo de corrigir palavras escritas de maneira incorreta em um arquivo de texto, utilizamos uma árvore de prefixos a fim de armazenar um dicionario, onde desfrutamos do mesmo para verificar a ortografia de cada palavra presente no arquivo em questão.
  </p>
@@ -11,7 +11,7 @@
 
 ## :accept: Feedback do Professor
 
-Feedback atribuído em nosso trabalho pelo <b>Professor Doutor Juliano Henrique Foleis</b> que ministra a matéria de Algoritmos e Estruturas de Dados 2 na <b>Universidade Tecnologia Federal do Paraná</b> (UTFPR/CM).
+Feedback atribuído em nosso trabalho pelo <b><i>Professor Doutor Juliano Henrique Foleis</i></b> que ministra a matéria de Algoritmos e Estruturas de Dados 2 na <b><i>Universidade Tecnologia Federal do Paraná</i></b> (UTFPR/CM).
 
 <img src="img/nota.PNG" alt="Nota de nosso trabalho" />
 
