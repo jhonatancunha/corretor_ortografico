@@ -15,7 +15,7 @@ Feedback atribuído em nosso trabalho pelo <b><i>Professor Doutor Juliano Henriq
 
 <img src="img/nota.PNG" alt="Nota de nosso trabalho" />
 
-<br>
+
 
 ## :red_circle: Como Utilizar
 
@@ -62,7 +62,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
 <p align="center">
   <img src="img/exemplo_default.PNG" alt="Exemplo onde passo arquivo default.txt a fim de verificar erros de ortografia no mesmo" />
 </p>
-<br />
+
 
 ### :bulb: Comparação do texto incorreto do arquivo e sua versão correta
 
@@ -185,7 +185,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   <br /> 
 
 
-### :chart_with_upwards_trend: [Visualize o relatório sobre o funcionamento do algoritmo](https://github.com/jhonatancunha/corretor_ortografico/blob/master/APS2 ED2 - RELATORIO.pdf) 
+### :chart_with_upwards_trend: [Visualize o relatório sobre o funcionamento do algoritmo](https://github.com/jhonatancunha/corretor_ortografico/blob/master/APS2%20ED2%20-%20RELATORIO.pdf) 
 
 ## :mortar_board: Autores
 
