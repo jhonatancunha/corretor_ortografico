@@ -9,7 +9,14 @@
 </p>
 <br>
 
+## :accept: Feedback do Professor
 
+Feedback atribuído em nosso trabalho pelo Professor Doutor Juliano Henrique Foleis que ministra o a matéria de Algoritmos e Estruturas de Dados 2 na Universidade Tecnologia Federal do Paraná (UTFPR/CM).
+
+<img src="img/nota.PNG" alt="Nota de nosso trabalho" />
+
+<br>
+<br>
 ## :red_circle: Como Utilizar
 
 ```bash
