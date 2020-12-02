@@ -185,6 +185,8 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   <br /> 
 
 
+### :chart_with_upwards_trend: [Visualize o relatório sobre o funcionamento do algoritmo](https://github.com/jhonatancunha/corretor_ortografico/blob/master/APS2%20ED2%20-%20RELATORIO.pdf) 
+
 ## :mortar_board: Autores
 
 <table><tr>
