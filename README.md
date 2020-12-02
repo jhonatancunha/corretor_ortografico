@@ -16,7 +16,7 @@ Feedback atribuído em nosso trabalho pelo <b><i>Professor Doutor Juliano Henriq
 <img src="img/nota.PNG" alt="Nota de nosso trabalho" />
 
 <br>
-<br>
+
 ## :red_circle: Como Utilizar
 
 ```bash
