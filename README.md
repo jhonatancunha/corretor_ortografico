@@ -11,7 +11,7 @@
 
 ## :accept: Feedback do Professor
 
-Feedback atribuído em nosso trabalho pelo Professor Doutor Juliano Henrique Foleis que ministra o a matéria de Algoritmos e Estruturas de Dados 2 na Universidade Tecnologia Federal do Paraná (UTFPR/CM).
+Feedback atribuído em nosso trabalho pelo <b>Professor Doutor Juliano Henrique Foleis</b> que ministra a matéria de Algoritmos e Estruturas de Dados 2 na <b>Universidade Tecnologia Federal do Paraná</b> (UTFPR/CM).
 
 <img src="img/nota.PNG" alt="Nota de nosso trabalho" />
 
@@ -185,7 +185,7 @@ Obtemos as seguintes informações como saida do algoritmo.<br />
   <br /> 
 
 
-### :chart_with_upwards_trend: [Visualize o relatório sobre o funcionamento do algoritmo](https://github.com/jhonatancunha/corretor_ortografico/blob/master/APS2%20ED2%20-%20RELATORIO.pdf) 
+### :chart_with_upwards_trend: [Visualize o relatório sobre o funcionamento do algoritmo](https://github.com/jhonatancunha/corretor_ortografico/blob/master/APS2 ED2 - RELATORIO.pdf) 
 
 ## :mortar_board: Autores
 
